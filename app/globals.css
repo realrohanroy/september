@@ -8,6 +8,12 @@
   --color-sindoor: var(--sindoor);
   --color-haldi: var(--haldi);
 
+  --color-primary: #f05b31;
+  --color-primary-hover: #e04a20;
+  --color-secondary: #0062ff;
+  --color-secondary-hover: #0050e6;
+  --color-blue-dark: #1e3a8a;
+
   --font-sans: var(--font-hind), ui-sans-serif, system-ui, sans-serif;
   --font-heading: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif; /* For numerals */
