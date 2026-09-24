@@ -50,7 +50,7 @@ export default function GiveCheckout() {
               <select 
                 id="cause" 
                 defaultValue="gau-seva" 
-                className="appearance-none w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold text-ink focus:outline-none focus:border-ink transition-colors cursor-pointer"
+                className="appearance-none w-full border border-rule rounded-none] bg-paper px-4 py-3 text-base font-semibold text-ink focus:outline-none focus:border-ink transition-colors cursor-pointer"
               >
                 <option value="gau-seva">Gau Seva (Cow Shelter)</option>
                 <option value="food">Anna Daan (Food Distribution)</option>
@@ -71,25 +71,25 @@ export default function GiveCheckout() {
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <button 
                 type="button" 
-                className="border border-rule rounded-[2px] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
+                className="border border-rule rounded-none] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
               >
                 51
               </button>
               <button 
                 type="button" 
-                className="border-2 border-sindoor rounded-[2px] bg-paper py-3 text-sm font-bold text-sindoor"
+                className="border-2 border-sindoor rounded-none] bg-paper py-3 text-sm font-bold text-sindoor"
               >
                 101
               </button>
               <button 
                 type="button" 
-                className="border border-rule rounded-[2px] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
+                className="border border-rule rounded-none] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
               >
                 251
               </button>
               <button 
                 type="button" 
-                className="border border-rule rounded-[2px] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
+                className="border border-rule rounded-none] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
               >
                 501
               </button>
@@ -98,7 +98,7 @@ export default function GiveCheckout() {
                 <input 
                   type="number" 
                   placeholder="Other amount" 
-                  className="w-full border border-rule rounded-[2px] bg-paper pl-8 pr-4 py-3 text-base font-bold text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink transition-colors" 
+                  className="w-full border border-rule rounded-none] bg-paper pl-8 pr-4 py-3 text-base font-bold text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink transition-colors" 
                 />
               </div>
             </div>
@@ -107,16 +107,16 @@ export default function GiveCheckout() {
           {/* 3. Frequency */}
           <div className="flex flex-col gap-3">
             <label className="text-sm font-bold tracking-wide uppercase text-ink/80">Frequency</label>
-            <div className="flex border border-sindoor rounded-[2px] p-1 bg-paper">
+            <div className="flex border border-sindoor rounded-none] p-1 bg-paper">
               <button 
                 type="button" 
-                className="flex-1 bg-sindoor text-white rounded-[2px] py-2.5 text-sm font-bold shadow-sm"
+                className="flex-1 bg-sindoor text-paper rounded-none] py-2.5 text-sm font-bold shadow-[0_1px_0_var(--rule)]"
               >
                 Once
               </button>
               <button 
                 type="button" 
-                className="flex-1 bg-transparent text-sindoor hover:bg-sindoor/10 rounded-[2px] py-2.5 text-sm font-bold transition-colors"
+                className="flex-1 bg-transparent text-sindoor hover:bg-sindoor/10 rounded-none] py-2.5 text-sm font-bold transition-colors"
               >
                 Monthly
               </button>
@@ -132,7 +132,7 @@ export default function GiveCheckout() {
                 id="name" 
                 placeholder="As it appears on your PAN" 
                 required 
-                className="w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
+                className="w-full border border-rule rounded-none] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
               />
             </div>
 
@@ -143,7 +143,7 @@ export default function GiveCheckout() {
                 id="contact" 
                 placeholder="For your receipt" 
                 required 
-                className="w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
+                className="w-full border border-rule rounded-none] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
               />
             </div>
 
@@ -154,7 +154,7 @@ export default function GiveCheckout() {
                 id="sankalp" 
                 maxLength={60} 
                 placeholder="e.g. In memory of Amma" 
-                className="w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
+                className="w-full border border-rule rounded-none] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
               />
             </div>
           </div>
@@ -163,16 +163,16 @@ export default function GiveCheckout() {
           <div className="flex flex-col gap-4 pt-4 border-t border-rule">
             <label className="flex items-start gap-3 cursor-pointer group">
               <div className="relative mt-0.5">
-                <input type="checkbox" className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-sindoor checked:border-sindoor transition-colors cursor-pointer" />
-                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-white opacity-0 peer-checked:opacity-100 pointer-events-none" />
+                <input type="checkbox" className="peer appearance-none w-5 h-5 border border-rule rounded-none] bg-paper checked:bg-sindoor checked:border-sindoor transition-colors cursor-pointer" />
+                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-paper opacity-0 peer-checked:opacity-100 pointer-events-none" />
               </div>
               <span className="text-sm font-semibold text-ink group-hover:text-sindoor transition-colors">I want an 80G tax receipt</span>
             </label>
             
             <label className="flex items-start gap-3 cursor-pointer group">
               <div className="relative mt-0.5">
-                <input type="checkbox" defaultChecked className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-sindoor checked:border-sindoor transition-colors cursor-pointer" />
-                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-white opacity-0 peer-checked:opacity-100 pointer-events-none" />
+                <input type="checkbox" defaultChecked className="peer appearance-none w-5 h-5 border border-rule rounded-none] bg-paper checked:bg-sindoor checked:border-sindoor transition-colors cursor-pointer" />
+                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-paper opacity-0 peer-checked:opacity-100 pointer-events-none" />
               </div>
               <span className="text-sm font-semibold text-ink group-hover:text-sindoor transition-colors">Cover the transaction fee (₹2.42)</span>
             </label>
@@ -182,7 +182,7 @@ export default function GiveCheckout() {
           <div className="mt-4 flex flex-col gap-5">
             <button 
               type="submit" 
-              className="w-full bg-sindoor text-white py-4 rounded-[2px] font-bold text-lg hover:opacity-90 active:translate-y-[1px] transition-all"
+              className="w-full bg-sindoor text-paper py-4 rounded-none] font-bold text-lg hover:opacity-90 active:translate-y-[1px] transition-all"
             >
               Give ₹103.42
             </button>

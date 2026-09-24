@@ -54,7 +54,7 @@ export default function FieldNotesPage() {
   const causes = ["All", "Anna Daan", "Gau Seva", "Temple Repair", "Vidya Daan", "Nadi Seva", "Elder Care"];
 
   return (
-    <main className="w-full min-h-screen bg-gray-50 pb-24">
+    <main className="w-full min-h-screen bg-paper pb-24">
       {/* 24px Ruled background */}
       <div className="fixed inset-0 pointer-events-none z-0" 
            style={{ 
@@ -67,10 +67,10 @@ export default function FieldNotesPage() {
       <div className="relative z-10 max-w-[800px] mx-auto px-4 md:px-8 pt-16 md:pt-24">
         
         <header className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl font-heading font-bold text-ink mb-6 leading-tight">
             Field Notes
           </h1>
-          <p className="text-lg text-gray-700">
+          <p className="text-lg text-ink/80">
             Raw, dated updates from the ground. No marketing, no long stories. Just what happened and where.
           </p>
         </header>
@@ -80,10 +80,10 @@ export default function FieldNotesPage() {
           {causes.map((cause, i) => (
             <button 
               key={cause} 
-              className={`px-4 py-2 text-sm font-bold rounded-sm transition-colors ${
+              className={`px-4 py-2 text-sm font-bold rounded-none transition-colors ${
                 i === 0 
-                  ? 'bg-sindoor text-white shadow-[0_1px_0_var(--rule)]' 
-                  : 'bg-white border border-gray-200 text-gray-600 hover:border-gray-400'
+                  ? 'bg-sindoor text-paper shadow-[0_1px_0_var(--rule)]' 
+                  : 'bg-card border border-rule text-ink/70 hover:border-gray-400'
               }`}
             >
               {cause}
@@ -92,23 +92,23 @@ export default function FieldNotesPage() {
         </div>
 
         {/* Notes List */}
-        <div className="bg-white border border-gray-200 shadow-[0_1px_0_var(--rule)]">
+        <div className="bg-card border border-rule shadow-[0_1px_0_var(--rule)]">
           {notes.map((note, index) => (
-            <div key={note.id} className={`p-6 md:p-8 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 hover:bg-gray-50 transition-colors cursor-pointer ${index !== notes.length - 1 ? 'border-b border-gray-100' : ''}`}>
+            <div key={note.id} className={`p-6 md:p-8 flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8 hover:bg-paper transition-colors cursor-pointer ${index !== notes.length - 1 ? 'border-b border-rule' : ''}`}>
               <div className="w-32 shrink-0">
-                <span className="text-sm font-bold text-gray-900">{note.date}</span>
-                <span className="block text-[11px] font-bold uppercase tracking-wider text-gray-400 mt-1">{note.cause}</span>
+                <span className="text-sm font-bold text-ink">{note.date}</span>
+                <span className="block text-[11px] font-bold uppercase tracking-wider text-ink/50 mt-1">{note.cause}</span>
               </div>
               <div className="flex-1">
-                <p className="text-base text-gray-900 font-medium mb-1">{note.headline}</p>
-                <p className="text-sm text-gray-500">{note.place}</p>
+                <p className="text-base text-ink font-medium mb-1">{note.headline}</p>
+                <p className="text-sm text-ink/60">{note.place}</p>
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-12 text-center">
-          <button className="bg-white border border-gray-200 text-gray-700 px-6 py-3 text-sm font-bold hover:border-gray-400 transition-colors shadow-[0_1px_0_var(--rule)]">
+          <button className="bg-card border border-rule text-ink/80 px-6 py-3 text-sm font-bold hover:border-gray-400 transition-colors shadow-[0_1px_0_var(--rule)]">
             Load more notes
           </button>
         </div>

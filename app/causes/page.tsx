@@ -58,7 +58,7 @@ export default function CausesPage() {
   ];
 
   return (
-    <main className="w-full min-h-screen bg-gray-50 pb-24">
+    <main className="w-full min-h-screen bg-paper pb-24">
       {/* 24px Ruled background */}
       <div className="fixed inset-0 pointer-events-none z-0" 
            style={{ 
@@ -72,10 +72,10 @@ export default function CausesPage() {
         
         <header className="mb-16">
           <div className="max-w-2xl">
-            <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-ink mb-6 leading-tight">
               Six causes.<br />Six open ledgers.
             </h1>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-ink/80">
               We price every seva in verifiable units. You pick what to cover, and we show you exactly where the money landed.
             </p>
           </div>
@@ -83,23 +83,23 @@ export default function CausesPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {causes.map((cause) => (
-            <div key={cause.id} className="bg-white border border-gray-200 p-8 flex flex-col hover:border-gray-300 transition-colors shadow-[0_1px_0_var(--rule)]">
+            <div key={cause.id} className="bg-card border border-rule p-8 flex flex-col hover:border-rule transition-colors shadow-[0_1px_0_var(--rule)]">
               <div className="flex justify-between items-start mb-6">
-                <span className="inline-block px-3 py-1 bg-gray-100 text-gray-600 text-[11px] font-bold tracking-widest uppercase rounded-full">
+                <span className="inline-block px-3 py-1 bg-paper text-ink/70 text-[11px] font-bold tracking-widest uppercase rounded-full">
                   {cause.sanskrit}
                 </span>
               </div>
               
-              <h2 className="text-2xl font-heading font-bold text-gray-900 mb-3">{cause.title}</h2>
-              <p className="text-sm text-gray-600 leading-relaxed mb-8 flex-1">{cause.blurb}</p>
+              <h2 className="text-2xl font-heading font-bold text-ink mb-3">{cause.title}</h2>
+              <p className="text-sm text-ink/70 leading-relaxed mb-8 flex-1">{cause.blurb}</p>
 
-              <div className="border-t border-gray-100 pt-6">
-                <p className="text-[11px] text-gray-400 uppercase tracking-wider mb-1">{cause.unitLabel}</p>
+              <div className="border-t border-rule pt-6">
+                <p className="text-[11px] text-ink/50 uppercase tracking-wider mb-1">{cause.unitLabel}</p>
                 <div className="flex items-end justify-between">
-                  <p className="text-2xl font-heading font-bold text-gray-900">₹{cause.unitInr}</p>
+                  <p className="text-2xl font-heading font-bold text-ink">₹{cause.unitInr}</p>
                   <Link
                     href={`/give?cause=${cause.id}`}
-                    className="bg-sindoor text-white px-5 py-2 text-sm font-bold shadow-md shadow-sindoor/30 transition-all hover:opacity-90 active:scale-[0.98] rounded-full"
+                    className="bg-sindoor text-paper px-5 py-2 text-sm font-bold  shadow-sindoor/30 transition-all hover:opacity-90 active:scale-[0.98] rounded-full"
                   >
                     Give ₹{cause.unitInr}
                   </Link>
