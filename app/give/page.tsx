@@ -27,7 +27,7 @@ export default function GiveCheckout() {
           <span className="text-sm font-bold hidden sm:inline-block">Back</span>
         </Link>
         
-        <Link href="/" className="text-2xl font-heading font-extrabold text-ink tracking-tight absolute left-1/2 -translate-x-1/2">
+        <Link href="/" className="text-2xl font-heading font-extrabold text-sindoor tracking-tight absolute left-1/2 -translate-x-1/2">
           september
         </Link>
         
@@ -37,7 +37,7 @@ export default function GiveCheckout() {
       {/* Checkout column */}
       <div className="relative z-10 w-full max-w-[480px] mx-auto px-4 py-12 flex-1 flex flex-col">
         <div className="mb-10 text-center">
-          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-ink mb-3">Give</h1>
+          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-sindoor mb-3">Give</h1>
           <p className="text-sm text-ink/70 font-medium">A ledger entry starts here.</p>
         </div>
         
@@ -107,16 +107,16 @@ export default function GiveCheckout() {
           {/* 3. Frequency */}
           <div className="flex flex-col gap-3">
             <label className="text-sm font-bold tracking-wide uppercase text-ink/80">Frequency</label>
-            <div className="flex border border-rule rounded-[2px] p-1 bg-paper">
+            <div className="flex border border-sindoor rounded-[2px] p-1 bg-paper">
               <button 
                 type="button" 
-                className="flex-1 bg-ink text-paper rounded-[2px] py-2.5 text-sm font-bold"
+                className="flex-1 bg-sindoor text-white rounded-[2px] py-2.5 text-sm font-bold shadow-sm"
               >
                 Once
               </button>
               <button 
                 type="button" 
-                className="flex-1 bg-transparent text-ink/70 hover:text-ink rounded-[2px] py-2.5 text-sm font-bold transition-colors"
+                className="flex-1 bg-transparent text-sindoor hover:bg-sindoor/10 rounded-[2px] py-2.5 text-sm font-bold transition-colors"
               >
                 Monthly
               </button>
@@ -163,16 +163,16 @@ export default function GiveCheckout() {
           <div className="flex flex-col gap-4 pt-4 border-t border-rule">
             <label className="flex items-start gap-3 cursor-pointer group">
               <div className="relative mt-0.5">
-                <input type="checkbox" className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-ink checked:border-ink transition-colors cursor-pointer" />
-                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-paper opacity-0 peer-checked:opacity-100 pointer-events-none" />
+                <input type="checkbox" className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-sindoor checked:border-sindoor transition-colors cursor-pointer" />
+                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-white opacity-0 peer-checked:opacity-100 pointer-events-none" />
               </div>
               <span className="text-sm font-semibold text-ink group-hover:text-sindoor transition-colors">I want an 80G tax receipt</span>
             </label>
             
             <label className="flex items-start gap-3 cursor-pointer group">
               <div className="relative mt-0.5">
-                <input type="checkbox" defaultChecked className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-ink checked:border-ink transition-colors cursor-pointer" />
-                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-paper opacity-0 peer-checked:opacity-100 pointer-events-none" />
+                <input type="checkbox" defaultChecked className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-sindoor checked:border-sindoor transition-colors cursor-pointer" />
+                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-white opacity-0 peer-checked:opacity-100 pointer-events-none" />
               </div>
               <span className="text-sm font-semibold text-ink group-hover:text-sindoor transition-colors">Cover the transaction fee (₹2.42)</span>
             </label>
