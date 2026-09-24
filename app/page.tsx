@@ -205,33 +205,35 @@ export default function Home() {
 
 
       {/* Your Date (Donate Monthly style) */}
-      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-10 md:py-16">
-        <div className="text-center mb-10">
-          <p className="text-gray-500 font-medium text-sm tracking-wide uppercase mb-2">Give on a day that matters</p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">Your date, every month</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto mt-4">Pick a birthday, anniversary, or punya tithi. We send a WhatsApp reminder, debit your chosen amount, and publish the receipt in that week's Khata.</p>
+      <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-20">
+        <div className="text-center mb-12">
+          <p className="text-gray-500 font-medium text-[11px] tracking-[0.15em] uppercase mb-3">Subscribe to Change</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-[#0B1221]">Your Date (Monthly)</h2>
+          <p className="text-gray-500 text-sm max-w-2xl mx-auto mt-4 leading-relaxed">
+            Pick a day of the month that means something to you — a birthday, an anniversary, or a punya tithi. We'll send you a WhatsApp message on your date, and then debit your chosen amount.
+          </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            {title: "In Memory", sub: "Honor a departed loved one every month on their punya tithi."},
-            {title: "Birthdays", sub: "Celebrate the gift of life by giving back on a birthday."},
-            {title: "Festival Giving", sub: "Commit to monthly support on a day of religious significance."}
+            {title: "In Memory", sub: "Honor a departed loved one every month on their punya tithi.", img: causes[0].image},
+            {title: "Birthdays", sub: "Celebrate the gift of life by giving back on a birthday.", img: causes[4].image},
+            {title: "Festival Giving", sub: "Commit to monthly support on a day of religious significance.", img: causes[2].image}
           ].map((item, i) => (
-            <div key={i} className="bg-white rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden flex flex-col">
-              <div className="h-[180px] relative bg-blue-50 overflow-hidden">
-                <img src={i === 0 ? causes[0].image : i === 1 ? causes[4].image : causes[2].image} className="w-full h-full object-cover opacity-80" alt={item.title} />
+            <div key={i} className="bg-white rounded-[24px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/50 overflow-hidden flex flex-col transition-transform hover:-translate-y-1 duration-300">
+              <div className="h-[200px] w-full relative bg-gray-100 overflow-hidden">
+                <img src={item.img} className="w-full h-full object-cover opacity-90" alt={item.title} />
               </div>
-              <div className="p-6 flex flex-col flex-1 items-center text-center">
-                <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-500 mb-6">{item.sub}</p>
-                <div className="w-full border-t border-gray-100 pt-5 mt-auto flex justify-between items-center">
+              <div className="p-8 flex flex-col flex-1 items-center text-center">
+                <h3 className="font-heading font-bold text-[#0B1221] text-lg mb-3">{item.title}</h3>
+                <p className="text-[13px] text-gray-500 mb-8 leading-relaxed px-2">{item.sub}</p>
+                <div className="w-full mt-auto flex justify-between items-end border-t border-gray-100/60 pt-6">
                   <div className="text-left">
-                    <p className="text-xs text-gray-500">Starts from</p>
-                    <p className="font-bold text-secondary text-lg">₹500<span className="text-xs font-normal text-gray-500">/monthly</span></p>
+                    <p className="text-[11px] text-gray-400 mb-0.5">Starts from</p>
+                    <p className="font-bold text-secondary text-lg leading-none">₹500<span className="text-[11px] font-medium text-gray-400">/monthly</span></p>
                   </div>
-                  <Link href="/your-date" className="bg-secondary text-white rounded-full px-5 py-2 text-sm font-bold shadow-md shadow-secondary/30 hover:bg-secondary-hover transition-colors">
-                    Set my date
+                  <Link href="/your-date" className="bg-secondary text-white rounded-full px-6 py-2.5 text-[13px] font-bold shadow-md shadow-secondary/20 hover:bg-secondary-hover transition-colors">
+                    PLEDGE NOW
                   </Link>
                 </div>
               </div>
@@ -240,57 +242,61 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Gap (Medical Emergencies style) */}
-      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-10 md:py-16 bg-gray-50">
-        <div className="text-center mb-10">
-          <p className="text-gray-500 font-medium text-sm tracking-wide uppercase mb-2">Needs that are short right now</p>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">Close the gap this week</h2>
+      {/* The Gap */}
+      <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-16 pb-32">
+        <div className="text-center mb-12">
+          <p className="text-gray-500 font-medium text-[11px] tracking-[0.15em] uppercase mb-3">Every. Rupee. Counts.</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-[#0B1221]">The Gap</h2>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
           {/* Gap Card 1 */}
-          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 overflow-hidden flex flex-col sm:flex-row group hover:-translate-y-1 transition-transform duration-300">
-            <div className="w-full sm:w-[40%] h-[200px] sm:h-auto relative">
-              <img src={causes[3].image} className="w-full h-full object-cover" alt="Kitchen" />
-              <div className="absolute top-0 left-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-br-lg uppercase tracking-wider">
+          <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100/50 overflow-hidden flex flex-col sm:flex-row h-auto sm:h-[180px] group transition-transform hover:-translate-y-1 duration-300">
+            <div className="w-full sm:w-[45%] h-[200px] sm:h-full relative overflow-hidden">
+              <img src={causes[3].image} className="w-full h-full object-cover scale-105" alt="Kitchen" />
+              <div className="absolute top-0 left-0 bg-[#F43F5E] text-white text-[9px] font-bold px-3 py-1.5 rounded-br-lg uppercase tracking-widest shadow-sm">
                 Urgent Shortfall
               </div>
             </div>
-            <div className="p-6 flex flex-col flex-1 w-full sm:w-[60%]">
-              <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">Anna Daan needs support this month</h3>
-              <p className="text-xs text-gray-500 flex items-center gap-1 mb-4">Daily bhandara · shortfall this week</p>
+            <div className="p-6 flex flex-col flex-1 w-full sm:w-[55%] justify-center">
+              <h3 className="font-heading font-bold text-[#0B1221] text-[15px] leading-tight mb-2">Kitchen, Sabarmati needs support this month</h3>
+              <p className="text-[11px] text-gray-400 flex items-center gap-1 mb-6">
+                <Search size={12} className="opacity-70" /> Ahmedabad
+              </p>
               
               <div className="mt-auto w-full">
-                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
-                  <div className="h-full bg-sindoor rounded-full" style={{ width: '58.9%' }}></div>
+                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2.5">
+                  <div className="h-full bg-[#F05B31] rounded-full" style={{ width: '58.9%' }}></div>
                 </div>
-                <div className="flex justify-between items-center text-xs font-medium">
-                  <div className="flex flex-col"><span className="text-gray-900 font-bold">₹22,400</span><span className="text-gray-500">Received</span></div>
-                  <div className="flex flex-col text-right"><span className="text-sindoor font-bold">₹38,000</span><span className="text-gray-500">Needed</span></div>
+                <div className="flex justify-between items-center text-[10px]">
+                  <div className="flex flex-col gap-0.5"><span className="text-[#0B1221] font-bold">₹22,400</span><span className="text-gray-400 font-medium">Received</span></div>
+                  <div className="flex flex-col text-right gap-0.5"><span className="text-[#F05B31] font-bold">₹38,000</span><span className="text-gray-400 font-medium">Needed</span></div>
                 </div>
               </div>
             </div>
           </div>
           
           {/* Gap Card 2 */}
-          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 overflow-hidden flex flex-col sm:flex-row group hover:-translate-y-1 transition-transform duration-300">
-            <div className="w-full sm:w-[40%] h-[200px] sm:h-auto relative">
-              <img src={causes[2].image} className="w-full h-full object-cover" alt="Goshala" />
-              <div className="absolute top-0 left-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-br-lg uppercase tracking-wider">
+          <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100/50 overflow-hidden flex flex-col sm:flex-row h-auto sm:h-[180px] group transition-transform hover:-translate-y-1 duration-300">
+            <div className="w-full sm:w-[45%] h-[200px] sm:h-full relative overflow-hidden">
+              <img src={causes[2].image} className="w-full h-full object-cover scale-105" alt="Goshala" />
+              <div className="absolute top-0 left-0 bg-[#F43F5E] text-white text-[9px] font-bold px-3 py-1.5 rounded-br-lg uppercase tracking-widest shadow-sm">
                 Urgent Shortfall
               </div>
             </div>
-            <div className="p-6 flex flex-col flex-1 w-full sm:w-[60%]">
-              <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">Gau Seva gaushala is short this week</h3>
-              <p className="text-xs text-gray-500 flex items-center gap-1 mb-4">Gaushala feed & care · veterinary shortfall</p>
+            <div className="p-6 flex flex-col flex-1 w-full sm:w-[55%] justify-center">
+              <h3 className="font-heading font-bold text-[#0B1221] text-[15px] leading-tight mb-2">Goshala, Dholka needs support this week</h3>
+              <p className="text-[11px] text-gray-400 flex items-center gap-1 mb-6">
+                <Search size={12} className="opacity-70" /> Dholka
+              </p>
               
               <div className="mt-auto w-full">
-                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
-                  <div className="h-full bg-sindoor rounded-full" style={{ width: '22.7%' }}></div>
+                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2.5">
+                  <div className="h-full bg-[#F05B31] rounded-full" style={{ width: '22.7%' }}></div>
                 </div>
-                <div className="flex justify-between items-center text-xs font-medium">
-                  <div className="flex flex-col"><span className="text-gray-900 font-bold">₹4,100</span><span className="text-gray-500">Received</span></div>
-                  <div className="flex flex-col text-right"><span className="text-sindoor font-bold">₹18,000</span><span className="text-gray-500">Needed</span></div>
+                <div className="flex justify-between items-center text-[10px]">
+                  <div className="flex flex-col gap-0.5"><span className="text-[#0B1221] font-bold">₹4,100</span><span className="text-gray-400 font-medium">Received</span></div>
+                  <div className="flex flex-col text-right gap-0.5"><span className="text-[#F05B31] font-bold">₹18,000</span><span className="text-gray-400 font-medium">Needed</span></div>
                 </div>
               </div>
             </div>
@@ -298,70 +304,73 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Khata (Most Trusted Platform blue section) */}
-      <section className="w-full py-16 md:py-24 relative overflow-hidden bg-blue-dark">
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
-        <div className="absolute -top-[50%] -left-[10%] w-[120%] h-[200%] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent pointer-events-none"></div>
+      {/* The Khata */}
+      <section className="w-full py-20 md:py-28 relative bg-[#1c397f]">
+        {/* Very subtle noise overlay */}
+        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
         
-        <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div className="w-full lg:w-[45%] text-white text-center lg:text-left">
-            <p className="text-blue-200 font-medium text-sm tracking-wide uppercase mb-3">Open ledger, published every Sunday</p>
-            <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6 leading-tight">The Khata</h2>
-            <p className="text-blue-100 text-lg mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
-              Every rupee received, every rupee deployed, and where it went. Verified by a chartered firm. Check it yourself.
+        <div className="max-w-[1200px] mx-auto px-4 md:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="w-full lg:w-[42%] text-white">
+            <p className="text-blue-100/70 font-bold text-[10px] tracking-[0.15em] uppercase mb-4">Turning Kindness in Action</p>
+            <h2 className="text-[34px] md:text-[44px] font-heading font-extrabold mb-6 leading-[1.1] uppercase tracking-tight text-white drop-shadow-sm">
+              The Khata: <br/>Most Trusted Book
+            </h2>
+            <p className="text-blue-50/80 text-[15px] mb-10 leading-relaxed max-w-sm">
+              The bound book of accounts. Checked and published every Sunday. Track your donation, get regular updates.
             </p>
-            <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto lg:mx-0">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
-                <p className="text-2xl font-bold text-white">₹ 1.42 Cr+</p>
-                <p className="text-xs text-blue-200 uppercase tracking-wider mt-1">Lifetime Deployed</p>
+            
+            <div className="flex gap-4 max-w-md">
+              <div className="flex-1 bg-[#284693] border border-white/5 rounded-lg py-5 px-4 text-center shadow-inner">
+                <p className="text-[17px] font-bold text-white leading-none mb-2">₹ 1.42 Cr+</p>
+                <p className="text-[9px] text-blue-100/60 uppercase tracking-widest">Lifetime Deployed</p>
               </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
-                <p className="text-2xl font-bold text-white">100%</p>
-                <p className="text-xs text-blue-200 uppercase tracking-wider mt-1">Transparent</p>
+              <div className="flex-1 bg-[#284693] border border-white/5 rounded-lg py-5 px-4 text-center shadow-inner">
+                <p className="text-[17px] font-bold text-white leading-none mb-2">100%</p>
+                <p className="text-[9px] text-blue-100/60 uppercase tracking-widest">Transparent</p>
               </div>
             </div>
           </div>
           
-          <div className="w-full lg:w-[55%]">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden p-6">
-              <div className="flex justify-between items-center mb-6">
-                <h3 className="font-heading font-bold text-gray-900 text-xl">Recent Ledger Entries</h3>
-                <Link href="/khata" className="text-sm font-semibold text-secondary hover:underline">Open the full Khata</Link>
+          <div className="w-full lg:w-[58%]">
+            <div className="bg-white rounded-xl shadow-2xl p-7 md:p-8">
+              <div className="flex justify-between items-center mb-8">
+                <h3 className="font-heading font-bold text-gray-900 text-lg">Recent Ledger Entries</h3>
+                <Link href="/khata" className="text-xs font-bold text-secondary hover:text-secondary-hover transition-colors">View All</Link>
               </div>
               <div className="overflow-x-auto">
-                <table className="w-full text-left text-sm border-collapse min-w-[500px]">
+                <table className="w-full text-left border-collapse min-w-[500px]">
                   <thead>
-                    <tr className="bg-gray-50 border-b border-gray-100">
-                      <th className="py-3 px-4 font-semibold text-gray-700 rounded-tl-lg">Cause</th>
-                      <th className="py-3 px-4 font-semibold text-gray-700 text-right">Received</th>
-                      <th className="py-3 px-4 font-semibold text-gray-700 text-right text-sindoor">Deployed</th>
-                      <th className="py-3 px-4 font-semibold text-gray-700 rounded-tr-lg">Where</th>
+                    <tr className="border-b border-gray-100/80">
+                      <th className="pb-3 px-2 font-semibold text-gray-500 text-[11px] uppercase tracking-wide">Cause</th>
+                      <th className="pb-3 px-2 font-semibold text-gray-500 text-[11px] uppercase tracking-wide">Received</th>
+                      <th className="pb-3 px-2 font-semibold text-[#F05B31] text-[11px] uppercase tracking-wide">Deployed</th>
+                      <th className="pb-3 px-2 font-semibold text-gray-500 text-[11px] uppercase tracking-wide">Where</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
-                      <td className="py-4 px-4 font-medium text-gray-900">Food</td>
-                      <td className="py-4 px-4 text-right font-medium">₹1,12,400</td>
-                      <td className="py-4 px-4 text-right font-bold text-sindoor">₹1,04,000</td>
-                      <td className="py-4 px-4 text-gray-600 text-xs">Sabarmati kitchen</td>
+                  <tbody className="text-[13px]">
+                    <tr className="border-b border-gray-100/50 hover:bg-gray-50/40 transition-colors">
+                      <td className="py-4 px-2 font-medium text-gray-900">Food</td>
+                      <td className="py-4 px-2 font-medium text-gray-900">₹1,12,400</td>
+                      <td className="py-4 px-2 font-bold text-[#F05B31]">₹1,04,000</td>
+                      <td className="py-4 px-2 text-gray-500 text-[11px]">Sabarmati kitchen</td>
                     </tr>
-                    <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
-                      <td className="py-4 px-4 font-medium text-gray-900">Gau seva</td>
-                      <td className="py-4 px-4 text-right font-medium">₹86,200</td>
-                      <td className="py-4 px-4 text-right font-bold text-sindoor">₹86,200</td>
-                      <td className="py-4 px-4 text-gray-600 text-xs">Goshala, Dholka</td>
+                    <tr className="border-b border-gray-100/50 hover:bg-gray-50/40 transition-colors">
+                      <td className="py-4 px-2 font-medium text-gray-900">Gau seva</td>
+                      <td className="py-4 px-2 font-medium text-gray-900">₹86,200</td>
+                      <td className="py-4 px-2 font-bold text-[#F05B31]">₹86,200</td>
+                      <td className="py-4 px-2 text-gray-500 text-[11px]">Goshala, Dholka</td>
                     </tr>
-                    <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
-                      <td className="py-4 px-4 font-medium text-gray-900">Temple repair</td>
-                      <td className="py-4 px-4 text-right font-medium">₹1,40,000</td>
-                      <td className="py-4 px-4 text-right font-bold text-sindoor">₹96,000</td>
-                      <td className="py-4 px-4 text-gray-600 text-xs">Ranchhodji, Dakor</td>
+                    <tr className="border-b border-gray-100/50 hover:bg-gray-50/40 transition-colors">
+                      <td className="py-4 px-2 font-medium text-gray-900">Temple repair</td>
+                      <td className="py-4 px-2 font-medium text-gray-900">₹1,40,000</td>
+                      <td className="py-4 px-2 font-bold text-[#F05B31]">₹96,000</td>
+                      <td className="py-4 px-2 text-gray-500 text-[11px]">Ranchhodji, Dakor</td>
                     </tr>
-                    <tr className="bg-orange-50/50 border-b border-orange-100 hover:bg-orange-50 transition-colors">
-                      <td className="py-4 px-4 font-medium text-orange-800">Unallocated</td>
-                      <td className="py-4 px-4 text-right font-medium text-orange-800">₹79,610</td>
-                      <td className="py-4 px-4 text-right font-bold text-orange-400">₹0</td>
-                      <td className="py-4 px-4 text-orange-600 text-xs">held</td>
+                    <tr className="bg-orange-50/20 hover:bg-orange-50/40 transition-colors">
+                      <td className="py-4 px-2 font-medium text-orange-800">Unallocated</td>
+                      <td className="py-4 px-2 font-medium text-orange-800">₹79,610</td>
+                      <td className="py-4 px-2 font-bold text-orange-400">₹0</td>
+                      <td className="py-4 px-2 text-orange-600/70 text-[11px]">held</td>
                     </tr>
                   </tbody>
                 </table>
