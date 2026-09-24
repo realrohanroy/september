@@ -14,12 +14,12 @@ Six values. This is the complete palette.
 :root{
   color-scheme: light only;
 
-  --paper:    #F4F5F0;
-  --card:     #FBFBF8;
-  --ink:      #1B2440;
-  --rule:     #C7CBBE;
-  --sindoor:  #AE3327;
-  --haldi:    #C8930E;
+  --paper:    #FFFFFF;
+  --card:     #FFFFFF;
+  --ink:      #1A1A1A;
+  --rule:     #E0E0E0;
+  --sindoor:  #F06918;
+  --haldi:    #1A2E5E;
 }
 ```
 
@@ -52,16 +52,16 @@ Role lock, do not deviate:
 Three families, fixed roles, no fourth family under any circumstance.
 
 ```css
---font-display: 'Martel', Georgia, serif;
+--font-display: 'Nunito Sans', sans-serif;
 --font-text:    'Hind', system-ui, sans-serif;
---font-num:     'IBM Plex Mono', ui-monospace, monospace;
+--font-num:     'Nunito Sans', sans-serif;
 ```
 
 | Role | Family | Weights | Where |
 |---|---|---|---|
-| Display | Martel | 700, 800 | Headings only |
+| Display | Nunito Sans | 700, 800 | Headings only |
 | Text | Hind | 400, 500, 600 | Body, UI, labels, buttons, nav |
-| Numerals | IBM Plex Mono | 400, 500, `font-variant-numeric: tabular-nums` | Rupee figures in ledger and receipt tables only |
+| Numerals | Nunito Sans | 700 | Rupee figures in ledger and receipt tables only |
 
 Self-hosted `woff2`, Latin and Devanagari subset separately, `font-display: swap`. Preload only the weights used above the fold on that route.
 
@@ -70,13 +70,13 @@ Self-hosted `woff2`, Latin and Devanagari subset separately, `font-display: swap
 ### Scale
 
 ```css
---text-display: clamp(2.6rem, 6vw, 4.25rem); /* Martel 800, -0.02em, lh 1.05 */
---text-h1:      2.25rem;  /* Martel 700, lh 1.15 */
---text-h2:      1.75rem;  /* Martel 700, lh 1.2 */
+--text-display: clamp(2.6rem, 6vw, 4.25rem); /* Nunito Sans 800, lh 1.1 */
+--text-h1:      2.25rem;  /* Nunito Sans 700, lh 1.15 */
+--text-h2:      1.75rem;  /* Nunito Sans 700, lh 1.2 */
 --text-h3:      1.25rem;  /* Hind 600,  lh 1.3 */
 --text-body:    1rem;     /* Hind 400,  lh 1.6, max-width 68ch */
 --text-small:   0.875rem; /* Hind 400,  lh 1.5 */
---text-num:     1rem;     /* Plex Mono 500, tabular-nums, lh 1.4 */
+--text-num:     1.125rem; /* Nunito Sans 700, proportional, lh 1.4 */
 ```
 
 No size outside this list. If a layout seems to need a seventh size, the layout is wrong, not the scale.
@@ -102,8 +102,8 @@ Grid: 12 columns, `1200px` max width, `24px` gutters.
 ## Radius and elevation — locked
 
 ```css
---radius-control: 2px;  /* inputs, buttons */
---radius-card:    0;    /* cards, tables, images */
+--radius-control: 4px;  /* inputs, buttons */
+--radius-card:    6px;  /* cards, tables, images */
 --radius-avatar:  50%;
 --shadow-line:    0 1px 0 var(--rule);
 --shadow-line-up: 0 -1px 0 var(--rule); /* sticky bars, modals */

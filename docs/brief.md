@@ -89,6 +89,9 @@ Generic labels are half the slop. Use these:
 
 ## 3. Visual system
 
+> **⚠ NOTE: SUPERSEDED**  
+> The visual values described in this section have been superseded by the new tokens derived from the visual audit in `docs/reference/audit.md`. See `docs/tokens.md` and `AGENTS.md` for the current approved values. This section is preserved for historical context of the initial design intent.
+
 ### 3.1 Colour
 
 Anchor: a ledger page. Not cream, not warm clay. Real Indian ruled account paper is a cool, slightly green-grey white, printed with blue rules and red column lines, stamped in violet ink.
