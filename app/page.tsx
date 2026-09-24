@@ -227,12 +227,8 @@ export default function Home() {
               <div className="p-8 flex flex-col flex-1 items-center text-center">
                 <h3 className="font-heading font-bold text-[#0B1221] text-lg mb-3">{item.title}</h3>
                 <p className="text-[13px] text-gray-500 mb-8 leading-relaxed px-2">{item.sub}</p>
-                <div className="w-full mt-auto flex justify-between items-end border-t border-gray-100/60 pt-6">
-                  <div className="text-left">
-                    <p className="text-[11px] text-gray-400 mb-0.5">Starts from</p>
-                    <p className="font-bold text-secondary text-lg leading-none">₹500<span className="text-[11px] font-medium text-gray-400">/monthly</span></p>
-                  </div>
-                  <Link href="/your-date" className="bg-secondary text-white rounded-full px-6 py-2.5 text-[13px] font-bold shadow-md shadow-secondary/20 hover:bg-secondary-hover transition-colors">
+                <div className="w-full mt-auto flex justify-center border-t border-gray-100/60 pt-6">
+                  <Link href="/your-date" className="w-[85%] text-center bg-secondary text-white rounded-full px-6 py-3 text-[13px] font-bold shadow-md shadow-secondary/20 hover:bg-secondary-hover transition-colors">
                     PLEDGE NOW
                   </Link>
                 </div>
