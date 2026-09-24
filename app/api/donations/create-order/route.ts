@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
     const parsed = createOrderSchema.safeParse(body);
 
     if (!parsed.success) {
-      logger.warn('Create Order: Invalid payload', { errors: parsed.error.errors, body });
+      logger.warn('Create Order: Invalid payload', { issues: parsed.error.issues, body });
       return NextResponse.json({ error: 'Invalid payload', details: parsed.error }, { status: 400 });
     }
 
