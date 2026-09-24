@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-heading: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --color-paper: var(--paper);
+  --color-card: var(--card);
+  --color-ink: var(--ink);
+  --color-rule: var(--rule);
+  --color-sindoor: var(--sindoor);
+  --color-haldi: var(--haldi);
 
-  --color-primary: #f05b31;
-  --color-primary-hover: #e04a20;
-  --color-secondary: #0062ff;
-  --color-secondary-hover: #0050e6;
-  --color-blue-dark: #1e3a8a;
-  
+  --font-sans: var(--font-hind), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif; /* For numerals */
+
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 1024px;
@@ -17,6 +19,17 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light only;
+
+    --paper:    #FFFFFF;
+    --card:     #FFFFFF;
+    --ink:      #1A1A1A;
+    --rule:     #E0E0E0;
+    --sindoor:  #F06918;
+    --haldi:    #1A2E5E;
+  }
+
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;

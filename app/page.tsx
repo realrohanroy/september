@@ -64,30 +64,6 @@ export default function Home() {
   return (
     <main className="flex flex-col w-full bg-gray-50 min-h-screen font-sans">
       
-      {/* Header */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm px-4 md:px-8 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-8">
-          <Link href="/" className="text-2xl font-heading font-extrabold text-primary tracking-tight flex items-center gap-2">
-            september
-          </Link>
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-700">
-            <Link href="/causes" className="hover:text-primary transition-colors flex items-center gap-1">Causes <Menu size={14}/></Link>
-            <Link href="/khata" className="hover:text-primary transition-colors">The Khata</Link>
-            <Link href="/your-date" className="hover:text-primary transition-colors">Monthly</Link>
-            <Link href="/field-notes" className="hover:text-primary transition-colors">Field Notes</Link>
-            <Link href="/who" className="hover:text-primary transition-colors">Accountability</Link>
-          </nav>
-        </div>
-        <div className="flex items-center gap-4">
-
-          <Link href="/give" className="bg-primary text-white rounded-full px-5 py-2 text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary-hover transition-colors hidden md:block">
-            Give ₹51
-          </Link>
-          <button className="lg:hidden text-gray-700">
-            <Menu size={24} />
-          </button>
-        </div>
-      </header>
 
       {/* Hero Carousel Area */}
       <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
@@ -578,63 +554,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 pt-16 pb-8 px-4 md:px-8">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
-            <div className="md:col-span-1">
-              <Link href="/" className="text-2xl font-heading font-extrabold text-primary tracking-tight mb-4 inline-block">
-                september
-              </Link>
-              <p className="text-sm text-gray-500 mb-6">Honest accounting for every cause. Track every contribution with complete transparency.</p>
-              <div className="flex gap-4">
-                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white cursor-pointer transition-colors">f</div>
-                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white cursor-pointer transition-colors">t</div>
-                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white cursor-pointer transition-colors">in</div>
-              </div>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-900 mb-4">Donate To</h4>
-              <ul className="space-y-3 text-sm text-gray-500">
-                <li><Link href="/causes" className="hover:text-primary transition-colors">Monthly Missions</Link></li>
-                <li><Link href="/causes/food" className="hover:text-primary transition-colors">Food</Link></li>
-                <li><Link href="/causes/gau-seva" className="hover:text-primary transition-colors">Gau Seva</Link></li>
-                <li><Link href="/causes/education" className="hover:text-primary transition-colors">Education</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-900 mb-4">Discover</h4>
-              <ul className="space-y-3 text-sm text-gray-500">
-                <li><Link href="/khata" className="hover:text-primary transition-colors">The Khata</Link></li>
-                <li><Link href="/field-notes" className="hover:text-primary transition-colors">Field Notes</Link></li>
-                <li><Link href="/who" className="hover:text-primary transition-colors">Accountability</Link></li>
-                <li><Link href="/reports" className="hover:text-primary transition-colors">Annual Reports</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="font-bold text-gray-900 mb-4">Contact Us</h4>
-              <div className="text-sm text-gray-500 space-y-3">
-                <p className="font-medium text-gray-900">September Charitable Trust</p>
-                <p>401, Sapphire Towers,<br/>Navrangpura, Ahmedabad 380009</p>
-                <p>+91 79 2640 1234</p>
-                <p>grievance@september.org</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
-            <p>Reg. No: E/12345/Ahmedabad | 12A: AABCD1234E12A | 80G: AABCD1234E80G | PAN: AABCD1234E</p>
-            <div className="flex gap-4">
-              <Link href="/legal/terms" className="hover:text-gray-700 transition-colors">Terms of Use</Link>
-              <Link href="/legal/privacy" className="hover:text-gray-700 transition-colors">Privacy Policy</Link>
-              <Link href="/legal/refund" className="hover:text-gray-700 transition-colors">Refund Policy</Link>
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
