@@ -28,7 +28,7 @@ export default function ImageCarousel({ images }: { images: CarouselImage[] }) {
           }`}
         >
           <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
-          <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-paper text-xs px-3 py-1.5 rounded-full font-medium">
+          <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-sm text-white text-xs px-3 py-1.5 rounded-full font-medium">
             {image.caption}
           </div>
         </div>
@@ -39,7 +39,7 @@ export default function ImageCarousel({ images }: { images: CarouselImage[] }) {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-2 h-2 rounded-full transition-colors ${
-              index === currentIndex ? 'bg-card' : 'bg-card/50 hover:bg-card/80'
+              index === currentIndex ? 'bg-white' : 'bg-white/50 hover:bg-white/80'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
