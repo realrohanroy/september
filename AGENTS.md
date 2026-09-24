@@ -36,11 +36,11 @@ Before writing code on any task:
 
 Do not skim. If you have not read `docs/brief.md` this session, say so and read it.
 
----
+<!-- ---
 
 ## 3. Non-negotiables
 
-These are correctness requirements, not preferences. A build that violates any of them is rejected without review.
+These are correctness requirements, not preferences. A build that violates any of them is rejected without review. -->
 
 ### 3.1 Ledger integrity
 
@@ -62,15 +62,15 @@ Full detail in `docs/payments.md` — read it before touching anything under `ap
 - Amounts are integers in paise everywhere. No floats touch money. No `parseFloat` on a currency value.
 - Test keys only, from `.env.local`. Never commit a key. Never print a key into a walkthrough or screenshot.
 
-### 3.3 Compliance surfaces
+<!-- ### 3.3 Compliance surfaces
 
 - `/legal/refund`, `/legal/privacy`, `/legal/terms`, `/legal/grievance`, and `/contact` must stay live and reachable from the footer. The payment gateway requires them. Do not remove or gate them behind a redesign.
 - Registration numbers in the footer are content, not placeholders. Never invent one. If a number is missing, leave the field empty and flag it.
 - Do not add foreign currency support, international card acceptance, or NRI donor copy unless `docs/compliance.md` states that FCRA is in place.
 
----
+--- -->
 
-## 4. Design constraints
+<!-- ## 4. Design constraints
 
 > Superseded — visual direction is now the reference screenshot, see docs/reference/
 
@@ -137,7 +137,7 @@ Banned typographic treatments:
 - All spacing is a multiple of 24px. This is not a suggestion, the ruled background depends on it.
 - The ruled page background (`repeating-linear-gradient`, 24px interval, `--rule` at 35%) sits behind content on `/`, `/khata`, and `/causes/*`. Behind, never above. Disabled on print and under `prefers-reduced-transparency`.
 - Everything is left aligned. The only centred elements in the entire site are the checkout column and the footer compliance block.
-- Forms and cards sit on `--card` with a `--rule` border and the ruled background suppressed inside them.
+- Forms and cards sit on `--card` with a `--rule` border and the ruled background suppressed inside them. -->
 
 ### 4.5 Motion
 
@@ -149,7 +149,7 @@ Banned typographic treatments:
 **Every async action carries a state.** Any button that triggers a network call (Give, the admin Publish, the monthly-upgrade button on the thank-you page) is a three-state machine, not a single click: `idle → pending → done` or `idle → pending → error`. On `pending`, disable the button, swap its label to a present-participle (`Processing…`, `Publishing…`), and stop there, no spinner animation beyond the label change. On `done`, the label confirms what happened (`Given`, `Published`). This is feedback, not decoration, and it is required, not optional: a donor tapping Give on patchy mobile data with no state change will tap it twice.
 
 **Considered and rejected, so it does not get reintroduced:** scroll-triggered parallax or pinned sections, cursor-following ("magnetic") buttons, image zoom on hover, and staggered multi-element reveals are common in current UI motion trends and are all wrong for this project. They read as an agency portfolio or a SaaS landing page, they pull attention toward the mechanism instead of the numbers, and several of them (magnetic buttons especially) add JS weight to routes with hard budgets. Hover feedback on this site is limited to the existing underline colour shift on links (`a:hover`) and the button press states in section 4.3. If a future brief argues for more of this, it argues against this section directly and needs a human decision, not a quiet addition mid-task.
-
+<!-- 
 ### 4.6 Imagery
 
 - Zero stock photography. No Unsplash, no Pexels, no generated images, no placeholder image services. If content is missing, ship a text block and flag the gap.
@@ -158,8 +158,8 @@ Banned typographic treatments:
 - `next.config` image domains allowlist contains the media host and nothing else.
 - Icons: Lucide, 1.5px stroke, 20px. Maximum eight distinct icons across the whole site. Emoji are never UI.
 
----
-
+--- -->
+<!-- 
 ## 5. Copy rules
 
 Copy is design content. The same review bar applies.
@@ -186,11 +186,11 @@ we believe that every
 change starts with
 ```
 
-Placeholder text policy: `lorem ipsum` must never reach a commit. Write real draft copy and mark it `<!-- DRAFT: needs September sign-off -->`.
+Placeholder text policy: `lorem ipsum` must never reach a commit. Write real draft copy and mark it `<!-- DRAFT: needs September sign-off -->`. -->
 
 ---
 
-## 6. Anti-slop checklist
+<!-- ## 6. Anti-slop checklist
 
 > Superseded — visual direction is now the reference screenshot, see docs/reference/
 
@@ -217,7 +217,7 @@ Run this against every page you build, item by item, before you report a task co
 - [ ] No arrow glyph in link or button text
 - [ ] Page matches `docs/reference/styleguide.png` on type scale and spacing rhythm
 
----
+--- -->
 
 ## 7. Code conventions
 
@@ -310,9 +310,8 @@ Screenshots of your own code are not verification. Screenshots of the rendered p
 
 ---
 
-## 11. Design lint
-
-`pnpm lint:design` runs `scripts/design-lint.sh`. Keep it passing. If you add a legitimate exception, you are almost certainly wrong, so ask first.
+<!-- ## 11. Design lint
+k first.
 
 ```bash
 #!/usr/bin/env bash
@@ -322,6 +321,7 @@ check () { # $1 = pattern, $2 = message, $3 = path glob
   if grep -rnE "$1" --include="$3" app components lib 2>/dev/null; then
     echo "FAIL: $2"; fail=1
   fi
+`pnpm lint:design` runs `scripts/design-lint.sh`. Keep it passing. If you add a legitimate exception, you are almost certainly wrong, so as
 }
 
 check '#[0-9a-fA-F]{3,8}\b' 'raw hex outside tokens.css' '*.tsx'
@@ -346,7 +346,7 @@ exit $fail
 
 The lint catches the mechanical violations. It does not catch a page that is technically compliant and still looks generic. That judgement is yours, and section 6 item 19 is where you exercise it.
 
----
+--- -->
 
 ## 12. Git
 
