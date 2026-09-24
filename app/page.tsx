@@ -69,7 +69,7 @@ export default function Home() {
       <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
         <div className="flex flex-col-reverse lg:flex-row rounded-[2px] overflow-hidden shadow-xl bg-card">
           <div className="w-full lg:w-[45%] bg-paper border-r border-rule p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
-            <div className="absolute top-0 left-0 w-2 h-full bg-blue-700"></div>
+            <div className="absolute top-0 left-0 w-2 h-full bg-sindoor"></div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
               Give once. <br/><span className="text-sindoor">See it reach.</span>
             </h1>
@@ -79,9 +79,9 @@ export default function Home() {
             <div className="bg-card rounded-[2px] p-6 shadow-sm border border-rule mb-6">
               <h3 className="font-heading font-bold text-ink mb-4 text-lg">Week 38 Ledger (14–20 Sep 2026)</h3>
               <div className="space-y-2 text-sm font-medium">
-                <div className="flex justify-between"><span className="text-ink/60">Received</span><span className="text-ink">₹ 4,18,210</span></div>
+                <div className="flex justify-between"><span className="text-ink/60">Received</span><span className="text-blue-600">₹ 4,18,210</span></div>
                 <div className="flex justify-between"><span className="text-ink/60">Deployed</span><span className="text-sindoor font-bold">₹ 3,86,000</span></div>
-                <div className="flex justify-between pt-2 border-t border-rule"><span className="text-ink/60">Not yet deployed</span><span className="text-haldi">₹ 32,210</span></div>
+                <div className="flex justify-between pt-2 border-t border-rule"><span className="text-ink/60">Not yet deployed</span><span className="text-blue-600">₹ 32,210</span></div>
               </div>
             </div>
             <HeroCTA />
