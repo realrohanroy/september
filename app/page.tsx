@@ -238,67 +238,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* The Gap */}
-      <section className="w-full max-w-[1200px] mx-auto px-4 md:px-8 py-16 pb-32">
-        <div className="text-center mb-12">
-          <p className="text-gray-500 font-medium text-[11px] tracking-[0.15em] uppercase mb-3">Every. Rupee. Counts.</p>
-          <h2 className="text-3xl md:text-4xl font-heading font-extrabold text-[#0B1221]">The Gap</h2>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[900px] mx-auto">
-          {/* Gap Card 1 */}
-          <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100/50 overflow-hidden flex flex-col sm:flex-row h-auto sm:h-[180px] group transition-transform hover:-translate-y-1 duration-300">
-            <div className="w-full sm:w-[45%] h-[200px] sm:h-full relative overflow-hidden">
-              <img src={causes[3].image} className="w-full h-full object-cover scale-105" alt="Kitchen" />
-              <div className="absolute top-0 left-0 bg-[#F43F5E] text-white text-[9px] font-bold px-3 py-1.5 rounded-br-lg uppercase tracking-widest shadow-sm">
-                Urgent Shortfall
-              </div>
-            </div>
-            <div className="p-6 flex flex-col flex-1 w-full sm:w-[55%] justify-center">
-              <h3 className="font-heading font-bold text-[#0B1221] text-[15px] leading-tight mb-2">Kitchen, Sabarmati needs support this month</h3>
-              <p className="text-[11px] text-gray-400 flex items-center gap-1 mb-6">
-                <Search size={12} className="opacity-70" /> Ahmedabad
-              </p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2.5">
-                  <div className="h-full bg-[#F05B31] rounded-full" style={{ width: '58.9%' }}></div>
-                </div>
-                <div className="flex justify-between items-center text-[10px]">
-                  <div className="flex flex-col gap-0.5"><span className="text-[#0B1221] font-bold">₹22,400</span><span className="text-gray-400 font-medium">Received</span></div>
-                  <div className="flex flex-col text-right gap-0.5"><span className="text-[#F05B31] font-bold">₹38,000</span><span className="text-gray-400 font-medium">Needed</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Gap Card 2 */}
-          <div className="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-gray-100/50 overflow-hidden flex flex-col sm:flex-row h-auto sm:h-[180px] group transition-transform hover:-translate-y-1 duration-300">
-            <div className="w-full sm:w-[45%] h-[200px] sm:h-full relative overflow-hidden">
-              <img src={causes[2].image} className="w-full h-full object-cover scale-105" alt="Goshala" />
-              <div className="absolute top-0 left-0 bg-[#F43F5E] text-white text-[9px] font-bold px-3 py-1.5 rounded-br-lg uppercase tracking-widest shadow-sm">
-                Urgent Shortfall
-              </div>
-            </div>
-            <div className="p-6 flex flex-col flex-1 w-full sm:w-[55%] justify-center">
-              <h3 className="font-heading font-bold text-[#0B1221] text-[15px] leading-tight mb-2">Goshala, Dholka needs support this week</h3>
-              <p className="text-[11px] text-gray-400 flex items-center gap-1 mb-6">
-                <Search size={12} className="opacity-70" /> Dholka
-              </p>
-              
-              <div className="mt-auto w-full">
-                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2.5">
-                  <div className="h-full bg-[#F05B31] rounded-full" style={{ width: '22.7%' }}></div>
-                </div>
-                <div className="flex justify-between items-center text-[10px]">
-                  <div className="flex flex-col gap-0.5"><span className="text-[#0B1221] font-bold">₹4,100</span><span className="text-gray-400 font-medium">Received</span></div>
-                  <div className="flex flex-col text-right gap-0.5"><span className="text-[#F05B31] font-bold">₹18,000</span><span className="text-gray-400 font-medium">Needed</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* The Khata */}
       <section className="w-full py-20 md:py-28 relative bg-[#1c397f]">
