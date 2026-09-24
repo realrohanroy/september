@@ -67,8 +67,8 @@ export default function Home() {
 
       {/* Hero Carousel Area */}
       <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
-        <div className="flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-xl bg-white">
-          <div className="w-full lg:w-[45%] bg-gradient-to-br from-orange-50 to-orange-100 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
+        <div className="flex flex-col-reverse lg:flex-row rounded-[2px] overflow-hidden shadow-xl bg-card">
+          <div className="w-full lg:w-[45%] bg-paper border-r border-rule p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
             <div className="absolute top-0 left-0 w-2 h-full bg-sindoor"></div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
               Give once. <br/><span className="text-sindoor">See it reach.</span>
@@ -76,12 +76,12 @@ export default function Home() {
             <p className="text-gray-700 text-lg md:text-xl font-medium mb-8 max-w-md">
               ₹51 feeds a cow for a day. ₹251 cleans a ghat. We publish every rupee in the Khata, every Sunday.
             </p>
-            <div className="bg-white rounded-2xl p-6 shadow-sm border border-orange-200 mb-6">
-              <h3 className="font-heading font-bold text-gray-900 mb-4 text-lg">Week 38 Ledger (14–20 Sep 2026)</h3>
+            <div className="bg-card rounded-[2px] p-6 shadow-sm border border-rule mb-6">
+              <h3 className="font-heading font-bold text-ink mb-4 text-lg">Week 38 Ledger (14–20 Sep 2026)</h3>
               <div className="space-y-2 text-sm font-medium">
-                <div className="flex justify-between"><span className="text-gray-600">Received</span><span className="text-gray-900">₹ 4,18,210</span></div>
-                <div className="flex justify-between"><span className="text-gray-600">Deployed</span><span className="text-sindoor font-bold">₹ 3,86,000</span></div>
-                <div className="flex justify-between pt-2 border-t border-gray-100"><span className="text-gray-600">Not yet deployed</span><span className="text-orange-500">₹ 32,210</span></div>
+                <div className="flex justify-between"><span className="text-ink/60">Received</span><span className="text-ink">₹ 4,18,210</span></div>
+                <div className="flex justify-between"><span className="text-ink/60">Deployed</span><span className="text-sindoor font-bold">₹ 3,86,000</span></div>
+                <div className="flex justify-between pt-2 border-t border-rule"><span className="text-ink/60">Not yet deployed</span><span className="text-haldi">₹ 32,210</span></div>
               </div>
             </div>
             <HeroCTA />
