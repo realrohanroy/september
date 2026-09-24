@@ -1,121 +1,204 @@
 import Link from 'next/link';
+import { ArrowLeft, FileText, Check } from 'lucide-react';
 
 export default function GiveCheckout() {
   return (
-    <main className="flex flex-col w-full min-h-screen bg-gray-50 font-sans">
+    <main className="relative flex flex-col w-full min-h-[100dvh] bg-paper font-sans text-ink">
       
-      {/* Checkout simplified nav */}
-      <header className="sticky top-0 z-50 bg-white shadow-sm px-4 md:px-8 py-4 flex justify-center">
-        <Link href="/" className="text-2xl font-heading font-extrabold text-sindoor tracking-tight">
+      {/* Khata Ruled Background */}
+      <div 
+        className="fixed inset-0 pointer-events-none opacity-40" 
+        style={{
+          backgroundImage: 'repeating-linear-gradient(to bottom, transparent, transparent 23px, var(--rule) 23px, var(--rule) 24px)',
+          backgroundSize: '100% 24px',
+          backgroundPosition: '0 0'
+        }}
+        aria-hidden="true"
+      />
+
+      {/* Top Nav (Mobile & Desktop) */}
+      <header className="sticky top-0 z-50 bg-paper border-b border-rule px-4 py-4 md:px-8 flex items-center justify-between shadow-[0_1px_0_var(--rule)]">
+        <Link 
+          href="/" 
+          className="flex items-center gap-2 text-ink hover:text-sindoor transition-colors"
+          aria-label="Go back to homepage"
+        >
+          <ArrowLeft size={20} strokeWidth={1.5} />
+          <span className="text-sm font-bold hidden sm:inline-block">Back</span>
+        </Link>
+        
+        <Link href="/" className="text-2xl font-heading font-extrabold text-ink tracking-tight absolute left-1/2 -translate-x-1/2">
           september
         </Link>
+        
+        <div className="w-[60px]" aria-hidden="true" />
       </header>
 
       {/* Checkout column */}
-      <div className="w-full max-w-[440px] mx-auto px-4 py-10 flex-1 flex flex-col">
-        <h1 className="text-2xl font-heading font-bold text-gray-900 text-center mb-8">Give</h1>
+      <div className="relative z-10 w-full max-w-[480px] mx-auto px-4 py-12 flex-1 flex flex-col">
+        <div className="mb-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-heading font-extrabold text-ink mb-3">Give</h1>
+          <p className="text-sm text-ink/70 font-medium">A ledger entry starts here.</p>
+        </div>
         
-        <form className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-6 sm:p-8 flex flex-col gap-6">
+        <form className="bg-card border border-rule p-6 md:p-10 flex flex-col gap-10">
           
           {/* 1. Cause */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="cause" className="text-sm font-semibold text-gray-700">Cause</label>
-            <select id="cause" defaultValue="gau-seva" className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sindoor/20 focus:border-sindoor transition-all">
-              <option value="gau-seva">Gau seva</option>
-              <option value="food">Food</option>
-              <option value="education">Education</option>
-              <option value="temple-repair">Temple repair</option>
-            </select>
+          <div className="flex flex-col gap-3">
+            <label htmlFor="cause" className="text-sm font-bold tracking-wide uppercase text-ink/80">Select Cause</label>
+            <div className="relative">
+              <select 
+                id="cause" 
+                defaultValue="gau-seva" 
+                className="appearance-none w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold text-ink focus:outline-none focus:border-ink transition-colors cursor-pointer"
+              >
+                <option value="gau-seva">Gau Seva (Cow Shelter)</option>
+                <option value="food">Anna Daan (Food Distribution)</option>
+                <option value="education">Vidya Daan (Education)</option>
+                <option value="temple-repair">Mandir Seva (Temple Upkeep)</option>
+                <option value="river">Nadi Seva (River Clean-up)</option>
+                <option value="elderly">Vriddha Seva (Elder Care)</option>
+              </select>
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none opacity-50">
+                ▼
+              </div>
+            </div>
           </div>
 
           {/* 2. Amount */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Amount</label>
-            <div className="grid grid-cols-3 gap-3">
-              <button type="button" className="border border-gray-200 rounded-lg py-2.5 text-sm font-bold text-gray-600 hover:border-sindoor hover:text-sindoor transition-colors">
-                ₹ 501
+          <div className="flex flex-col gap-3">
+            <label className="text-sm font-bold tracking-wide uppercase text-ink/80">Amount (₹)</label>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <button 
+                type="button" 
+                className="border border-rule rounded-[2px] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
+              >
+                51
               </button>
-              <button type="button" className="border-2 border-sindoor bg-sindoor/10 rounded-lg py-2.5 text-sm font-bold text-sindoor">
-                ₹ 1,100
+              <button 
+                type="button" 
+                className="border-2 border-sindoor rounded-[2px] bg-paper py-3 text-sm font-bold text-sindoor"
+              >
+                101
               </button>
-              <button type="button" className="border border-gray-200 rounded-lg py-2.5 text-sm font-bold text-gray-600 hover:border-sindoor hover:text-sindoor transition-colors">
-                ₹ 2,100
+              <button 
+                type="button" 
+                className="border border-rule rounded-[2px] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
+              >
+                251
               </button>
-              <button type="button" className="border border-gray-200 rounded-lg py-2.5 text-sm font-bold text-gray-600 hover:border-sindoor hover:text-sindoor transition-colors">
-                ₹ 5,100
+              <button 
+                type="button" 
+                className="border border-rule rounded-[2px] bg-paper py-3 text-sm font-bold text-ink hover:border-ink transition-colors"
+              >
+                501
               </button>
-              <div className="col-span-2 relative">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">₹</span>
-                <input type="number" placeholder="Other amount" className="w-full border border-gray-200 rounded-lg bg-gray-50 pl-8 pr-4 py-2.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-sindoor/20 focus:border-sindoor transition-all" />
+              <div className="col-span-2 sm:col-span-4 relative mt-1">
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-ink/50 font-bold">₹</span>
+                <input 
+                  type="number" 
+                  placeholder="Other amount" 
+                  className="w-full border border-rule rounded-[2px] bg-paper pl-8 pr-4 py-3 text-base font-bold text-ink placeholder:text-ink/30 focus:outline-none focus:border-ink transition-colors" 
+                />
               </div>
             </div>
           </div>
 
           {/* 3. Frequency */}
-          <div className="flex flex-col gap-2">
-            <label className="text-sm font-semibold text-gray-700">Frequency</label>
-            <div className="flex bg-gray-100 rounded-lg p-1">
-              <button type="button" className="flex-1 bg-white shadow-sm text-gray-900 rounded-md py-2 text-sm font-bold">
+          <div className="flex flex-col gap-3">
+            <label className="text-sm font-bold tracking-wide uppercase text-ink/80">Frequency</label>
+            <div className="flex border border-rule rounded-[2px] p-1 bg-paper">
+              <button 
+                type="button" 
+                className="flex-1 bg-ink text-paper rounded-[2px] py-2.5 text-sm font-bold"
+              >
                 Once
               </button>
-              <button type="button" className="flex-1 text-gray-500 rounded-md py-2 text-sm font-semibold hover:text-gray-700 transition-colors">
-                Every month
+              <button 
+                type="button" 
+                className="flex-1 bg-transparent text-ink/70 hover:text-ink rounded-[2px] py-2.5 text-sm font-bold transition-colors"
+              >
+                Monthly
               </button>
             </div>
           </div>
 
-          {/* 4. Name */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-sm font-semibold text-gray-700">Name</label>
-            <input type="text" id="name" placeholder="Full name" required className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sindoor/20 focus:border-sindoor transition-all" />
-          </div>
+          {/* 4. Details */}
+          <div className="flex flex-col gap-6 pt-4 border-t border-rule">
+            <div className="flex flex-col gap-2">
+              <label htmlFor="name" className="text-sm font-bold text-ink">Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                placeholder="As it appears on your PAN" 
+                required 
+                className="w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
+              />
+            </div>
 
-          {/* 5. Phone or email */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="contact" className="text-sm font-semibold text-gray-700">Phone or email</label>
-            <input type="text" id="contact" placeholder="To send your receipt" required className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sindoor/20 focus:border-sindoor transition-all" />
-          </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="contact" className="text-sm font-bold text-ink">Phone or email</label>
+              <input 
+                type="text" 
+                id="contact" 
+                placeholder="For your receipt" 
+                required 
+                className="w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
+              />
+            </div>
 
-          {/* 6. Sankalp line */}
-          <div className="flex flex-col gap-2">
-            <label htmlFor="sankalp" className="text-sm font-semibold text-gray-700">Give in someone's name (optional)</label>
-            <input type="text" id="sankalp" maxLength={60} placeholder="e.g. In memory of Amma" className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-sindoor/20 focus:border-sindoor transition-all" />
+            <div className="flex flex-col gap-2">
+              <label htmlFor="sankalp" className="text-sm font-bold text-ink">Give in someone's name <span className="font-normal text-ink/60">(optional)</span></label>
+              <input 
+                type="text" 
+                id="sankalp" 
+                maxLength={60} 
+                placeholder="e.g. In memory of Amma" 
+                className="w-full border border-rule rounded-[2px] bg-paper px-4 py-3 text-base font-semibold focus:outline-none focus:border-ink transition-colors placeholder:font-normal" 
+              />
+            </div>
           </div>
 
           {/* Checkboxes */}
-          <div className="flex flex-col gap-4 mt-2">
-            {/* 7. 80G */}
+          <div className="flex flex-col gap-4 pt-4 border-t border-rule">
             <label className="flex items-start gap-3 cursor-pointer group">
-              <input type="checkbox" className="mt-0.5 w-4 h-4 rounded border-gray-300 text-sindoor focus:ring-sindoor" />
-              <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">I want an 80G tax receipt</span>
+              <div className="relative mt-0.5">
+                <input type="checkbox" className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-ink checked:border-ink transition-colors cursor-pointer" />
+                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-paper opacity-0 peer-checked:opacity-100 pointer-events-none" />
+              </div>
+              <span className="text-sm font-semibold text-ink group-hover:text-sindoor transition-colors">I want an 80G tax receipt</span>
             </label>
             
-            {/* 8. Fee coverage */}
             <label className="flex items-start gap-3 cursor-pointer group">
-              <input type="checkbox" defaultChecked className="mt-0.5 w-4 h-4 rounded border-gray-300 text-sindoor focus:ring-sindoor" />
-              <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">Cover the transaction fee (₹24.00)</span>
+              <div className="relative mt-0.5">
+                <input type="checkbox" defaultChecked className="peer appearance-none w-5 h-5 border border-rule rounded-[2px] bg-paper checked:bg-ink checked:border-ink transition-colors cursor-pointer" />
+                <Check size={14} strokeWidth={3} className="absolute inset-0 m-auto text-paper opacity-0 peer-checked:opacity-100 pointer-events-none" />
+              </div>
+              <span className="text-sm font-semibold text-ink group-hover:text-sindoor transition-colors">Cover the transaction fee (₹2.42)</span>
             </label>
           </div>
 
-          {/* 9. Button */}
-          <div className="mt-2 flex flex-col gap-4">
-            <button type="submit" className="w-full bg-sindoor text-white py-3.5 rounded-full font-bold text-sm hover:opacity-90 transition-colors shadow-lg shadow-sindoor/20">
-              GIVE ₹ 1,124
+          {/* CTA */}
+          <div className="mt-4 flex flex-col gap-5">
+            <button 
+              type="submit" 
+              className="w-full bg-sindoor text-white py-4 rounded-[2px] font-bold text-lg hover:opacity-90 active:translate-y-[1px] transition-all"
+            >
+              Give ₹103.42
             </button>
-            <div className="flex flex-col gap-1.5 text-center text-xs text-gray-400 font-medium">
+            <div className="flex flex-col gap-2 text-center text-xs text-ink/60 font-semibold uppercase tracking-wider">
               <span>80G: AABCD1234E80G</span>
-              <span>Book last updated Sunday 20 Sep</span>
-              <span className="text-green-600">Receipt on WhatsApp in under a minute</span>
+              <span className="flex items-center justify-center gap-1.5"><FileText size={12}/> Receipt via WhatsApp</span>
             </div>
           </div>
         </form>
       </div>
 
       {/* Footer compliance line */}
-      <footer className="w-full py-6 px-4 bg-white border-t border-gray-200 text-center mt-auto">
-        <p className="text-xs text-gray-400 font-medium">
+      <footer className="w-full py-6 px-4 bg-paper border-t border-rule text-center mt-auto z-10">
+        <p className="text-xs text-ink/60 font-semibold">
           September Charitable Trust. Reg. No: E/12345/Ahmedabad. <br className="sm:hidden"/>
-          <Link href="/legal/terms" className="hover:text-gray-600 transition-colors">Terms</Link> &middot; <Link href="/legal/privacy" className="hover:text-gray-600 transition-colors">Privacy</Link> &middot; <Link href="/legal/refund" className="hover:text-gray-600 transition-colors">Refund</Link>
+          <Link href="/legal/terms" className="hover:text-ink transition-colors ml-1 sm:ml-0">Terms</Link> &middot; <Link href="/legal/privacy" className="hover:text-ink transition-colors">Privacy</Link> &middot; <Link href="/legal/refund" className="hover:text-ink transition-colors">Refund</Link>
         </p>
       </footer>
     </main>
