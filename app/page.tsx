@@ -69,9 +69,9 @@ export default function Home() {
       <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
         <div className="flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-xl bg-white">
           <div className="w-full lg:w-[45%] bg-gradient-to-br from-orange-50 to-orange-100 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
-            <div className="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+            <div className="absolute top-0 left-0 w-2 h-full bg-sindoor"></div>
             <h1 className="text-3xl md:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
-              Give once. <br/><span className="text-primary">See it reach.</span>
+              Give once. <br/><span className="text-sindoor">See it reach.</span>
             </h1>
             <p className="text-gray-700 text-lg md:text-xl font-medium mb-8 max-w-md">
               ₹51 feeds a cow for a day. ₹251 cleans a ghat. We publish every rupee in the Khata, every Sunday.
@@ -80,7 +80,7 @@ export default function Home() {
               <h3 className="font-heading font-bold text-gray-900 mb-4 text-lg">Week 38 Ledger (14–20 Sep 2026)</h3>
               <div className="space-y-2 text-sm font-medium">
                 <div className="flex justify-between"><span className="text-gray-600">Received</span><span className="text-gray-900">₹ 4,18,210</span></div>
-                <div className="flex justify-between"><span className="text-gray-600">Deployed</span><span className="text-primary font-bold">₹ 3,86,000</span></div>
+                <div className="flex justify-between"><span className="text-gray-600">Deployed</span><span className="text-sindoor font-bold">₹ 3,86,000</span></div>
                 <div className="flex justify-between pt-2 border-t border-gray-100"><span className="text-gray-600">Not yet deployed</span><span className="text-orange-500">₹ 32,210</span></div>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 hidden md:block pointer-events-none" />
                 </div>
                 <div className="w-full md:w-[50%] p-8 md:p-12 flex flex-col justify-center">
-                  <span className="inline-block rounded-full bg-primary/20 border border-primary/30 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-primary mb-6 w-max">
+                  <span className="inline-block rounded-full bg-sindoor/20 border border-sindoor/30 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-sindoor mb-6 w-max">
                     Most urgent right now
                   </span>
                   <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">
@@ -140,7 +140,7 @@ export default function Home() {
                   <div className="flex items-center gap-4">
                     <Link
                       href="/give?cause=urgent"
-                      className="group inline-flex items-center gap-2 bg-primary text-white rounded-full px-7 py-3 text-sm font-bold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-hover active:scale-[0.98]"
+                      className="group inline-flex items-center gap-2 bg-sindoor text-white rounded-full px-7 py-3 text-sm font-bold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:opacity-90 active:scale-[0.98]"
                     >
                       Give to the urgent fund
                     </Link>
@@ -189,7 +189,7 @@ export default function Home() {
                       </div>
                       <Link
                         href={`/give?cause=${cause.id}`}
-                        className="group/btn inline-flex items-center justify-center gap-2 bg-primary text-white rounded-full px-5 py-2 text-sm font-bold shadow-md shadow-primary/30 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-hover active:scale-[0.98]"
+                        className="group/btn inline-flex items-center justify-center gap-2 bg-sindoor text-white rounded-full px-5 py-2 text-sm font-bold shadow-md shadow-sindoor/30 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:opacity-90 active:scale-[0.98]"
                       >
                         Give ₹{cause.unitInr}
                       </Link>
@@ -262,11 +262,11 @@ export default function Home() {
               
               <div className="mt-auto w-full">
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
-                  <div className="h-full bg-primary rounded-full" style={{ width: '58.9%' }}></div>
+                  <div className="h-full bg-sindoor rounded-full" style={{ width: '58.9%' }}></div>
                 </div>
                 <div className="flex justify-between items-center text-xs font-medium">
                   <div className="flex flex-col"><span className="text-gray-900 font-bold">₹22,400</span><span className="text-gray-500">Received</span></div>
-                  <div className="flex flex-col text-right"><span className="text-primary font-bold">₹38,000</span><span className="text-gray-500">Needed</span></div>
+                  <div className="flex flex-col text-right"><span className="text-sindoor font-bold">₹38,000</span><span className="text-gray-500">Needed</span></div>
                 </div>
               </div>
             </div>
@@ -286,11 +286,11 @@ export default function Home() {
               
               <div className="mt-auto w-full">
                 <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
-                  <div className="h-full bg-primary rounded-full" style={{ width: '22.7%' }}></div>
+                  <div className="h-full bg-sindoor rounded-full" style={{ width: '22.7%' }}></div>
                 </div>
                 <div className="flex justify-between items-center text-xs font-medium">
                   <div className="flex flex-col"><span className="text-gray-900 font-bold">₹4,100</span><span className="text-gray-500">Received</span></div>
-                  <div className="flex flex-col text-right"><span className="text-primary font-bold">₹18,000</span><span className="text-gray-500">Needed</span></div>
+                  <div className="flex flex-col text-right"><span className="text-sindoor font-bold">₹18,000</span><span className="text-gray-500">Needed</span></div>
                 </div>
               </div>
             </div>
@@ -334,7 +334,7 @@ export default function Home() {
                     <tr className="bg-gray-50 border-b border-gray-100">
                       <th className="py-3 px-4 font-semibold text-gray-700 rounded-tl-lg">Cause</th>
                       <th className="py-3 px-4 font-semibold text-gray-700 text-right">Received</th>
-                      <th className="py-3 px-4 font-semibold text-gray-700 text-right text-primary">Deployed</th>
+                      <th className="py-3 px-4 font-semibold text-gray-700 text-right text-sindoor">Deployed</th>
                       <th className="py-3 px-4 font-semibold text-gray-700 rounded-tr-lg">Where</th>
                     </tr>
                   </thead>
@@ -342,19 +342,19 @@ export default function Home() {
                     <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
                       <td className="py-4 px-4 font-medium text-gray-900">Food</td>
                       <td className="py-4 px-4 text-right font-medium">₹1,12,400</td>
-                      <td className="py-4 px-4 text-right font-bold text-primary">₹1,04,000</td>
+                      <td className="py-4 px-4 text-right font-bold text-sindoor">₹1,04,000</td>
                       <td className="py-4 px-4 text-gray-600 text-xs">Sabarmati kitchen</td>
                     </tr>
                     <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
                       <td className="py-4 px-4 font-medium text-gray-900">Gau seva</td>
                       <td className="py-4 px-4 text-right font-medium">₹86,200</td>
-                      <td className="py-4 px-4 text-right font-bold text-primary">₹86,200</td>
+                      <td className="py-4 px-4 text-right font-bold text-sindoor">₹86,200</td>
                       <td className="py-4 px-4 text-gray-600 text-xs">Goshala, Dholka</td>
                     </tr>
                     <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
                       <td className="py-4 px-4 font-medium text-gray-900">Temple repair</td>
                       <td className="py-4 px-4 text-right font-medium">₹1,40,000</td>
-                      <td className="py-4 px-4 text-right font-bold text-primary">₹96,000</td>
+                      <td className="py-4 px-4 text-right font-bold text-sindoor">₹96,000</td>
                       <td className="py-4 px-4 text-gray-600 text-xs">Ranchhodji, Dakor</td>
                     </tr>
                     <tr className="bg-orange-50/50 border-b border-orange-100 hover:bg-orange-50 transition-colors">
@@ -388,28 +388,28 @@ export default function Home() {
               <h3 className="font-heading font-bold text-gray-900 text-2xl mb-8">Where your money goes</h3>
               <div className="space-y-8 mb-10">
                 <div className="flex gap-4">
-                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-primary">₹</div>
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-sindoor">₹</div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Payment Gateway</h4>
                     <p className="text-sm text-gray-600">₹2.10 goes to processing fees for secure transactions.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-primary"><Building2 size={20}/></div>
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-sindoor"><Building2 size={20}/></div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">Operations</h4>
                     <p className="text-sm text-gray-600">₹6.00 covers our operational costs and logistics.</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-primary"><Heart size={20}/></div>
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-sindoor"><Heart size={20}/></div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">To the ground</h4>
                     <p className="text-sm text-gray-600">₹91.90 goes directly to the cause you selected.</p>
                   </div>
                 </div>
               </div>
-              <Link href="/khata" className="block w-full text-center bg-primary text-white py-3 rounded-full font-bold shadow-md shadow-primary/30 hover:bg-primary-hover transition-colors">
+              <Link href="/khata" className="block w-full text-center bg-sindoor text-white py-3 rounded-full font-bold shadow-md shadow-sindoor/30 hover:opacity-90 transition-colors">
                 Open the Khata
               </Link>
             </div>
@@ -453,7 +453,7 @@ export default function Home() {
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">Where the money landed</h2>
         
         <div className="flex justify-center gap-4 mb-10">
-          <button className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-md shadow-primary/30 transition-colors hover:bg-primary-hover">Latest</button>
+          <button className="bg-sindoor text-white px-6 py-2 rounded-full text-sm font-bold shadow-md shadow-sindoor/30 transition-colors hover:opacity-90">Latest</button>
           <button className="bg-gray-100 text-gray-700 px-6 py-2 rounded-full text-sm font-bold transition-colors hover:bg-gray-200 hover:text-gray-900">Food</button>
           <button className="bg-gray-100 text-gray-700 px-6 py-2 rounded-full text-sm font-bold transition-colors hover:bg-gray-200 hover:text-gray-900">Education</button>
         </div>
@@ -506,25 +506,25 @@ export default function Home() {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           <div className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
-            <div className="bg-orange-50 text-primary p-3 rounded-xl"><FileText size={24}/></div>
+            <div className="bg-orange-50 text-sindoor p-3 rounded-xl"><FileText size={24}/></div>
             <div>
               <h3 className="font-bold text-gray-900 mb-1">Trust Deed</h3>
               <p className="text-xs text-gray-500 mb-2">September is governed by a registered public charitable trust.</p>
-              <Link href="/reports/trust-deed.pdf" className="text-primary text-xs font-semibold hover:underline">Download PDF</Link>
+              <Link href="/reports/trust-deed.pdf" className="text-sindoor text-xs font-semibold hover:underline">Download PDF</Link>
             </div>
           </div>
           
           <div className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
-            <div className="bg-orange-50 text-primary p-3 rounded-xl"><ShieldCheck size={24}/></div>
+            <div className="bg-orange-50 text-sindoor p-3 rounded-xl"><ShieldCheck size={24}/></div>
             <div>
               <h3 className="font-bold text-gray-900 mb-1">Audited Statement</h3>
               <p className="text-xs text-gray-500 mb-2">Verified finances for 2025-26 by independent auditors.</p>
-              <Link href="/reports/audit-2025.pdf" className="text-primary text-xs font-semibold hover:underline">Download PDF</Link>
+              <Link href="/reports/audit-2025.pdf" className="text-sindoor text-xs font-semibold hover:underline">Download PDF</Link>
             </div>
           </div>
           
           <div className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
-            <div className="bg-orange-50 text-primary p-3 rounded-xl"><Building2 size={24}/></div>
+            <div className="bg-orange-50 text-sindoor p-3 rounded-xl"><Building2 size={24}/></div>
             <div>
               <h3 className="font-bold text-gray-900 mb-1">Bank Transfer</h3>
               <p className="text-xs text-gray-500">A/C 50200012345678</p>
@@ -537,13 +537,13 @@ export default function Home() {
       {/* Pre-footer CTA */}
       <section className="w-full">
         <div className="flex flex-col md:flex-row">
-          <div className="w-full md:w-1/2 bg-primary p-12 md:p-20 flex flex-col justify-center text-white">
+          <div className="w-full md:w-1/2 bg-sindoor p-12 md:p-20 flex flex-col justify-center text-white">
             <h2 className="text-4xl md:text-5xl font-heading font-extrabold leading-tight mb-4">
               ₹51 feeds a cow.<br/>₹251 cleans a ghat.<br/>₹501 serves a meal.
             </h2>
             <p className="text-white/80 text-lg mb-8 max-w-md">Pick a seva. We publish where it went.</p>
             <div>
-              <Link href="/give" className="inline-block bg-white text-primary px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-50 transition-colors">
+              <Link href="/give" className="inline-block bg-white text-sindoor px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-50 transition-colors">
                 Give ₹51
               </Link>
             </div>

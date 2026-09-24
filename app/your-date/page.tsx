@@ -43,7 +43,7 @@ export default function YourDatePage() {
             {dates.map((date) => (
               <button
                 key={date}
-                className="aspect-square flex items-center justify-center text-sm md:text-base font-bold text-gray-700 border border-gray-200 rounded-sm hover:border-primary hover:text-primary transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary active:bg-gray-50"
+                className="aspect-square flex items-center justify-center text-sm md:text-base font-bold text-gray-700 border border-gray-200 rounded-sm hover:border-sindoor hover:text-sindoor transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary active:bg-gray-50"
               >
                 {date}
               </button>
@@ -54,7 +54,7 @@ export default function YourDatePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
             {['Gau Seva', 'Anna Daan', 'Vidya Daan'].map((cause) => (
               <label key={cause} className="flex items-start gap-3 p-4 border border-gray-200 rounded-sm cursor-pointer hover:border-gray-400 transition-colors">
-                <input type="radio" name="cause" className="mt-1 border-gray-300 text-primary focus:ring-primary" />
+                <input type="radio" name="cause" className="mt-1 border-gray-300 text-sindoor focus:ring-sindoor" />
                 <span className="text-sm font-bold text-gray-900">{cause}</span>
               </label>
             ))}
@@ -63,7 +63,7 @@ export default function YourDatePage() {
           <h2 className="text-xl font-heading font-bold text-gray-900 mb-6">3. Set the amount</h2>
           <div className="flex flex-wrap gap-4 mb-10">
             {[101, 251, 501, 1100].map((amount) => (
-              <button key={amount} className="px-6 py-3 border border-gray-200 rounded-sm text-sm font-bold text-gray-700 hover:border-primary hover:text-primary transition-colors">
+              <button key={amount} className="px-6 py-3 border border-gray-200 rounded-sm text-sm font-bold text-gray-700 hover:border-sindoor hover:text-sindoor transition-colors">
                 ₹{amount}
               </button>
             ))}
@@ -74,7 +74,7 @@ export default function YourDatePage() {
             <input 
               type="text" 
               placeholder="e.g. In memory of..." 
-              className="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary"
+              className="w-full border border-gray-200 rounded-sm px-4 py-3 text-sm focus:outline-none focus:border-sindoor focus:ring-1 focus:ring-sindoor"
             />
             <p className="text-xs text-gray-500 mt-2">This will be printed on your receipt every month.</p>
           </div>
@@ -83,7 +83,7 @@ export default function YourDatePage() {
             <div className="text-sm text-gray-600">
               Cancel anytime with one tap on WhatsApp.
             </div>
-            <Link href="/give" className="w-full md:w-auto text-center bg-primary text-white font-bold px-8 py-3.5 rounded-sm hover:bg-primary-hover transition-colors shadow-[0_1px_0_var(--rule)]">
+            <Link href="/give" className="w-full md:w-auto text-center bg-sindoor text-white font-bold px-8 py-3.5 rounded-sm hover:opacity-90 transition-colors shadow-[0_1px_0_var(--rule)]">
               Set up mandate
             </Link>
           </div>

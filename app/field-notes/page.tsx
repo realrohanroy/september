@@ -82,7 +82,7 @@ export default function FieldNotesPage() {
               key={cause} 
               className={`px-4 py-2 text-sm font-bold rounded-sm transition-colors ${
                 i === 0 
-                  ? 'bg-primary text-white shadow-[0_1px_0_var(--rule)]' 
+                  ? 'bg-sindoor text-white shadow-[0_1px_0_var(--rule)]' 
                   : 'bg-white border border-gray-200 text-gray-600 hover:border-gray-400'
               }`}
             >

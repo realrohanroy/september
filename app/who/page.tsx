@@ -78,17 +78,17 @@ export default function WhoPage() {
                 <FileText size={18} className="text-gray-400" /> Documents
               </h3>
               <div className="space-y-3">
-                <a href="#" className="flex items-center justify-between p-3 border border-gray-200 hover:border-primary group transition-colors">
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors">Trust Deed (2021)</span>
-                  <Download size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
+                <a href="#" className="flex items-center justify-between p-3 border border-gray-200 hover:border-sindoor group transition-colors">
+                  <span className="text-sm font-medium text-gray-900 group-hover:text-sindoor transition-colors">Trust Deed (2021)</span>
+                  <Download size={16} className="text-gray-400 group-hover:text-sindoor transition-colors" />
                 </a>
-                <a href="#" className="flex items-center justify-between p-3 border border-gray-200 hover:border-primary group transition-colors">
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors">Audited Statement (FY 24-25)</span>
-                  <Download size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
+                <a href="#" className="flex items-center justify-between p-3 border border-gray-200 hover:border-sindoor group transition-colors">
+                  <span className="text-sm font-medium text-gray-900 group-hover:text-sindoor transition-colors">Audited Statement (FY 24-25)</span>
+                  <Download size={16} className="text-gray-400 group-hover:text-sindoor transition-colors" />
                 </a>
-                <a href="#" className="flex items-center justify-between p-3 border border-gray-200 hover:border-primary group transition-colors">
-                  <span className="text-sm font-medium text-gray-900 group-hover:text-primary transition-colors">Audited Statement (FY 23-24)</span>
-                  <Download size={16} className="text-gray-400 group-hover:text-primary transition-colors" />
+                <a href="#" className="flex items-center justify-between p-3 border border-gray-200 hover:border-sindoor group transition-colors">
+                  <span className="text-sm font-medium text-gray-900 group-hover:text-sindoor transition-colors">Audited Statement (FY 23-24)</span>
+                  <Download size={16} className="text-gray-400 group-hover:text-sindoor transition-colors" />
                 </a>
               </div>
             </div>

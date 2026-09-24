@@ -99,7 +99,7 @@ export default function CausesPage() {
                   <p className="text-2xl font-heading font-bold text-gray-900">₹{cause.unitInr}</p>
                   <Link
                     href={`/give?cause=${cause.id}`}
-                    className="bg-primary text-white px-5 py-2 text-sm font-bold shadow-md shadow-primary/30 transition-all hover:bg-primary-hover active:scale-[0.98] rounded-full"
+                    className="bg-sindoor text-white px-5 py-2 text-sm font-bold shadow-md shadow-sindoor/30 transition-all hover:opacity-90 active:scale-[0.98] rounded-full"
                   >
                     Give ₹{cause.unitInr}
                   </Link>

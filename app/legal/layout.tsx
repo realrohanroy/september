@@ -8,10 +8,10 @@ export default function LegalLayout({
   return (
     <main className="flex flex-col w-full min-h-screen bg-gray-50 font-sans">
       <header className="sticky top-0 z-50 bg-white shadow-sm px-4 md:px-8 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-heading font-extrabold text-primary tracking-tight">
+        <Link href="/" className="text-2xl font-heading font-extrabold text-sindoor tracking-tight">
           september
         </Link>
-        <Link href="/give" className="bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary-hover transition-colors">
+        <Link href="/give" className="bg-sindoor text-white px-5 py-2 rounded-full text-sm font-bold hover:opacity-90 transition-colors">
           Give Now
         </Link>
       </header>

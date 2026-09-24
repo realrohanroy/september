@@ -25,11 +25,11 @@ export default function HeroCTA() {
             onClick={() => setSelected(a.value)}
             className={`flex flex-col items-center rounded-xl px-4 py-2.5 border-2 text-left transition-all duration-200 ease-out focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${
               selected === a.value
-                ? 'border-primary bg-primary/5 shadow-sm'
+                ? 'border-sindoor bg-sindoor/5 shadow-sm'
                 : 'border-gray-200 bg-white hover:border-gray-400'
             }`}
           >
-            <span className={`text-base font-bold leading-none ${selected === a.value ? 'text-primary' : 'text-gray-800'}`}>
+            <span className={`text-base font-bold leading-none ${selected === a.value ? 'text-sindoor' : 'text-gray-800'}`}>
               {a.label}
             </span>
             <span className="text-[10px] text-gray-400 mt-0.5 font-medium">
@@ -43,7 +43,7 @@ export default function HeroCTA() {
       <div className="flex items-center gap-4">
         <Link
           href={`/give?amount=${selected}`}
-          className="inline-block bg-primary text-white rounded-full px-8 py-3.5 font-bold hover:bg-primary-hover transition-colors shadow-md shadow-primary/30 active:scale-[0.98]"
+          className="inline-block bg-sindoor text-white rounded-full px-8 py-3.5 font-bold hover:opacity-90 transition-colors shadow-md shadow-sindoor/30 active:scale-[0.98]"
         >
           Give ₹{selected}
         </Link>
