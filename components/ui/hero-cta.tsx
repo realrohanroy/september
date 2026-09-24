@@ -29,7 +29,7 @@ export default function HeroCTA() {
                 : 'border-gray-200 bg-white hover:border-gray-400'
             }`}
           >
-            <span className={`text-base font-bold leading-none ${selected === a.value ? 'text-sindoor' : 'text-gray-800'}`}>
+            <span className={`text-base font-bold leading-none ${selected === a.value ? 'text-sindoor' : 'text-blue-600'}`}>
               {a.label}
             </span>
             <span className="text-[10px] text-gray-400 mt-0.5 font-medium">
