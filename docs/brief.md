@@ -18,6 +18,9 @@ This brief is written so an agent can read it and make decisions without asking 
 
 ### 1.1 The real problem
 
+> Superseded — visual direction is now the reference screenshot, see docs/reference/
+
+
 September collects money for two worlds that almost never share a website:
 
 - **Welfare seva**: food, education, old age homes, disaster relief. Donors here are mostly urban, English-first, want impact metrics, want 80G, compare you against Goonj and Akshaya Patra.
@@ -89,8 +92,7 @@ Generic labels are half the slop. Use these:
 
 ## 3. Visual system
 
-> **⚠ NOTE: SUPERSEDED**  
-> The visual values described in this section have been superseded by the new tokens derived from the visual audit in `docs/reference/audit.md`. See `docs/tokens.md` and `AGENTS.md` for the current approved values. This section is preserved for historical context of the initial design intent.
+> Superseded — visual direction is now the reference screenshot, see docs/reference/
 
 ### 3.1 Colour
 

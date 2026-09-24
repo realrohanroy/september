@@ -1,374 +1,320 @@
 import Link from 'next/link';
-import { Menu, Download } from 'lucide-react';
+import { Menu, Search, Heart, User, ArrowRight, CheckCircle2, ShieldCheck, FileText, Building2, Smartphone, Building } from 'lucide-react';
+import ImageCarousel from '@/components/ui/image-carousel';
+import HeroCTA from '@/components/ui/hero-cta';
 
 export default function Home() {
-  return (
-    <main className="flex flex-col w-full">
-      {/* 1. Top bar / announcement strip */}
-      <div className="w-full bg-[var(--haldi)] text-[var(--paper)] py-2 px-5 flex flex-col sm:flex-row justify-center items-center gap-4 text-small">
-        <div className="font-semibold">Week 38 Ledger Published</div>
-        <div className="hidden sm:block">·</div>
-        <div>Received: ₹4,18,210</div>
-        <Link href="/khata" className="font-semibold underline underline-offset-2 hover:text-[var(--sindoor)] transition-colors">
-          Open the full book
-        </Link>
-      </div>
+  const causes = [
+    {
+      id: "nadi",
+      title: "Nadi Seva",
+      sanskrit: "नदी सेवा",
+      blurb: "Ghat clean-ups, waste interception nets, and river-bank restoration on the sacred rivers of India.",
+      image: "https://images.unsplash.com/photo-1779518079988-882219cd24db?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+      unitInr: 251,
+      unitLabel: "one day of ghat cleaning",
+    },
+    {
+      id: "mandir",
+      title: "Mandir Seva",
+      sanskrit: "मन्दिर सेवा",
+      blurb: "Restoring neglected village temples and sustaining the pujaris, musicians, and cooks who keep them alive.",
+      image: "https://images.unsplash.com/photo-1665003725647-3ae0f01140b1?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+      unitInr: 1100,
+      unitLabel: "one month of temple upkeep",
+    },
+    {
+      id: "gau",
+      title: "Gau Seva",
+      sanskrit: "गौ सेवा",
+      blurb: "Green fodder, veterinary care, and shelter for abandoned and injured cows in partner gaushalas.",
+      image: "https://images.pexels.com/photos/38937794/pexels-photo-38937794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      unitInr: 51,
+      unitLabel: "one cow, one day",
+    },
+    {
+      id: "anna",
+      title: "Anna Daan",
+      sanskrit: "अन्न दान",
+      blurb: "Hot, freshly cooked sattvik meals served every day at ghats, hospitals, and temple courtyards.",
+      image: "https://images.unsplash.com/photo-1677128912094-36d988ce198b?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200",
+      unitInr: 501,
+      unitLabel: "one bhandara, serves 50",
+    },
+    {
+      id: "vidya",
+      title: "Vidya Daan",
+      sanskrit: "विद्या दान",
+      blurb: "Books, slates, uniforms, and after-school teachers for children in riverside and temple-town schools.",
+      image: "https://images.pexels.com/photos/15119089/pexels-photo-15119089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      unitInr: 351,
+      unitLabel: "one child's books, one term",
+    },
+    {
+      id: "vriddha",
+      title: "Vriddha Seva",
+      sanskrit: "वृद्ध सेवा",
+      blurb: "Medicines, spectacles, and monthly ration for elders living alone in pilgrimage towns.",
+      image: "https://images.pexels.com/photos/14225230/pexels-photo-14225230.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      unitInr: 751,
+      unitLabel: "one elder's monthly ration",
+    },
+  ];
 
-      {/* 2. Global navigation bar */}
-      <nav className="w-full bg-[var(--paper)] shadow-line sticky top-0 z-[var(--z-sticky)] px-5">
-        <div className="max-w-[1200px] mx-auto h-14 flex items-center justify-between">
-          <Link href="/" className="text-h3 text-[var(--ink)] border-b border-[var(--ink)] pb-[1px] leading-none">
+  return (
+    <main className="flex flex-col w-full bg-gray-50 min-h-screen font-sans">
+      
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-white shadow-sm px-4 md:px-8 py-3 flex items-center justify-between">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="text-2xl font-heading font-extrabold text-primary tracking-tight flex items-center gap-2">
             september
           </Link>
-          
-          <div className="hidden md:flex items-center gap-6 text-body">
-            <Link href="/causes" className="hover:text-[var(--ink-60)] transition-colors">Causes</Link>
-            <Link href="/khata" className="hover:text-[var(--ink-60)] transition-colors">The Khata</Link>
-            <Link href="/field-notes" className="hover:text-[var(--ink-60)] transition-colors">Field notes</Link>
-            <Link href="/who" className="hover:text-[var(--ink-60)] transition-colors">Who</Link>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <Link href="/give" className="bg-[var(--sindoor)] text-[var(--paper)] px-4 py-2 rounded-[var(--radius-control)] font-semibold text-small transition-colors hover:bg-opacity-90">
-              Give
-            </Link>
-            <button className="md:hidden">
-              <Menu size={20} strokeWidth={1.5} />
-            </button>
-          </div>
+          <nav className="hidden lg:flex items-center gap-6 text-sm font-semibold text-gray-700">
+            <Link href="/causes" className="hover:text-primary transition-colors flex items-center gap-1">Causes <Menu size={14}/></Link>
+            <Link href="/khata" className="hover:text-primary transition-colors">The Khata</Link>
+            <Link href="/your-date" className="hover:text-primary transition-colors">Monthly</Link>
+            <Link href="/field-notes" className="hover:text-primary transition-colors">Field Notes</Link>
+            <Link href="/who" className="hover:text-primary transition-colors">Accountability</Link>
+          </nav>
         </div>
-      </nav>
+        <div className="flex items-center gap-4">
 
-      {/* 3. Hero = this week's ledger line */}
-      <section className="w-full px-5 py-[var(--spacing-3u)] sm:py-[var(--spacing-5u)]">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="flex flex-col">
-            <h1 className="text-display text-[var(--ink)] mb-6">
-              We publish our book. <br/>
-              <span className="text-[var(--ink-60)]">Every rupee in, every rupee out, updated every Sunday.</span>
+          <Link href="/give" className="bg-primary text-white rounded-full px-5 py-2 text-sm font-bold shadow-sm shadow-primary/20 hover:bg-primary-hover transition-colors hidden md:block">
+            Give ₹51
+          </Link>
+          <button className="lg:hidden text-gray-700">
+            <Menu size={24} />
+          </button>
+        </div>
+      </header>
+
+      {/* Hero Carousel Area */}
+      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-10">
+        <div className="flex flex-col lg:flex-row rounded-3xl overflow-hidden shadow-xl bg-white">
+          <div className="w-full lg:w-[45%] bg-gradient-to-br from-orange-50 to-orange-100 p-8 md:p-12 lg:p-16 flex flex-col justify-center relative">
+            <div className="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+            <h1 className="text-3xl md:text-5xl font-heading font-bold text-gray-900 leading-tight mb-4">
+              Give once. <br/><span className="text-primary">See it reach.</span>
             </h1>
-
-            <div className="bg-[var(--card)] border border-[var(--rule)] rounded-[var(--radius-card)] p-6 mt-4 relative z-[var(--z-content)]">
-              <div className="flex justify-between items-center border-b border-[var(--rule)] pb-4 mb-4">
-                <div className="text-h3">Week 38 <span className="text-[var(--ink-60)] font-normal text-body">· 14–20 Sep 2026</span></div>
-                <Link href="/give" className="bg-[var(--sindoor)] text-[var(--paper)] px-4 py-2 rounded-[var(--radius-control)] font-semibold text-small">
-                  Give
-                </Link>
-              </div>
-              
-              <div className="flex flex-col gap-3 text-body font-medium">
-                <div className="flex justify-between">
-                  <span>Received</span>
-                  <span className="text-num">₹ 4,18,210</span>
-                </div>
-                <div className="flex justify-between text-[var(--sindoor)]">
-                  <span>Deployed</span>
-                  <span className="text-num">₹ 3,86,000</span>
-                </div>
-                <div className="flex justify-between text-[var(--haldi)]">
-                  <span>Not yet deployed</span>
-                  <span className="text-num">₹ 32,210</span>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-[var(--rule)]">
-                <Link href="/khata" className="text-body font-semibold underline underline-offset-2 hover:text-[var(--ink-60)] transition-colors">
-                  Open the full book
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col gap-2 relative z-[var(--z-content)]">
-            <div className="w-full aspect-[3/2] border border-[var(--rule)] bg-[var(--rule)] overflow-hidden rounded-none">
-              <img src="https://images.unsplash.com/photo-1593113560732-a81d1136b8e3?q=80&w=1200&auto=format&fit=crop" alt="Sabarmati kitchen" className="object-cover w-full h-full" />
-            </div>
-            <p className="text-small text-[var(--ink-60)]">Sabarmati kitchen, Ahmedabad. 19 Sep 2026.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. The gap */}
-      <section className="w-full px-5 py-[var(--spacing-3u)]">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-h2 mb-[var(--spacing-1u)]">The gap</h2>
-          <div className="flex flex-col gap-[var(--spacing-1u)]">
-            {/* Gap Item 1 */}
-            <div className="bg-[var(--card)] border border-[var(--rule)] rounded-[var(--radius-card)] p-4 sm:p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between relative z-[var(--z-content)]">
-              <div className="flex-1 w-full">
-                <div className="text-body font-medium mb-2">Kitchen, Sabarmati <span className="text-[var(--ink-60)] font-normal">· needs ₹38,000 this month · ₹22,400 in</span></div>
-                <div className="w-full h-1 bg-[var(--rule)] rounded-full overflow-hidden">
-                  <div className="h-full bg-[var(--ink)] rounded-full" style={{ width: '58.9%' }}></div>
-                </div>
-              </div>
-              <Link href="/give?cause=food&amount=1000" className="whitespace-nowrap border border-[var(--rule)] px-4 py-2 rounded-[var(--radius-control)] font-medium text-small hover:bg-[var(--rule)] transition-colors">
-                Cover part of this
-              </Link>
-            </div>
-            
-            {/* Gap Item 2 */}
-            <div className="bg-[var(--card)] border border-[var(--rule)] rounded-[var(--radius-card)] p-4 sm:p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between relative z-[var(--z-content)]">
-              <div className="flex-1 w-full">
-                <div className="text-body font-medium mb-2">Goshala, Dholka <span className="text-[var(--ink-60)] font-normal">· needs ₹18,000 this week · ₹4,100 in</span></div>
-                <div className="w-full h-1 bg-[var(--rule)] rounded-full overflow-hidden">
-                  <div className="h-full bg-[var(--ink)] rounded-full" style={{ width: '22.7%' }}></div>
-                </div>
-              </div>
-              <Link href="/give?cause=gau-seva&amount=501" className="whitespace-nowrap border border-[var(--rule)] px-4 py-2 rounded-[var(--radius-control)] font-medium text-small hover:bg-[var(--rule)] transition-colors">
-                Cover part of this
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Explore causes (Priced in units) */}
-      <section className="w-full px-5 py-[var(--spacing-3u)]">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-h2 mb-[var(--spacing-1u)]">Causes</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[var(--spacing-1u)]">
-            {/* Cause: Gau Seva */}
-            <div className="bg-[var(--card)] border border-[var(--rule)] rounded-[var(--radius-card)] p-6 relative z-[var(--z-content)] flex flex-col">
-              <h3 className="text-h3 border-b border-[var(--rule)] pb-3 mb-4">Gau seva</h3>
-              <div className="flex flex-col gap-3 text-body mb-6 flex-1">
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 51</span>
-                  <span className="text-[var(--ink-60)] text-right">one cow, one day</span>
-                </div>
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 351</span>
-                  <span className="text-[var(--ink-60)] text-right">one cow, one week</span>
-                </div>
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 1,500</span>
-                  <span className="text-[var(--ink-60)] text-right">one cow, one month</span>
-                </div>
-              </div>
-              <Link href="/give?cause=gau-seva&amount=351" className="bg-[var(--sindoor)] text-[var(--paper)] text-center px-4 py-3 rounded-[var(--radius-control)] font-semibold text-small">
-                Give ₹ 351
-              </Link>
-            </div>
-
-            {/* Cause: Food */}
-            <div className="bg-[var(--card)] border border-[var(--rule)] rounded-[var(--radius-card)] p-6 relative z-[var(--z-content)] flex flex-col">
-              <h3 className="text-h3 border-b border-[var(--rule)] pb-3 mb-4">Food</h3>
-              <div className="flex flex-col gap-3 text-body mb-6 flex-1">
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 35</span>
-                  <span className="text-[var(--ink-60)] text-right">one plate</span>
-                </div>
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 850</span>
-                  <span className="text-[var(--ink-60)] text-right">one family's ration, one week</span>
-                </div>
-              </div>
-              <Link href="/give?cause=food&amount=850" className="bg-[var(--sindoor)] text-[var(--paper)] text-center px-4 py-3 rounded-[var(--radius-control)] font-semibold text-small">
-                Give ₹ 850
-              </Link>
-            </div>
-
-            {/* Cause: Education */}
-            <div className="bg-[var(--card)] border border-[var(--rule)] rounded-[var(--radius-card)] p-6 relative z-[var(--z-content)] flex flex-col">
-              <h3 className="text-h3 border-b border-[var(--rule)] pb-3 mb-4">Education</h3>
-              <div className="flex flex-col gap-3 text-body mb-6 flex-1">
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 1,100</span>
-                  <span className="text-[var(--ink-60)] text-right">one child's books, one year</span>
-                </div>
-                <div className="flex justify-between items-baseline gap-4">
-                  <span className="text-num font-medium">₹ 6,500</span>
-                  <span className="text-[var(--ink-60)] text-right">one month of a teacher's honorarium</span>
-                </div>
-              </div>
-              <Link href="/give?cause=education&amount=1100" className="bg-[var(--sindoor)] text-[var(--paper)] text-center px-4 py-3 rounded-[var(--radius-control)] font-semibold text-small">
-                Give ₹ 1,100
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Follow the rupee */}
-      <section className="w-full px-5 py-[var(--spacing-3u)]">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-h2 mb-[var(--spacing-1u)]">Follow the rupee</h2>
-          <p className="text-body text-[var(--ink-60)] mb-6">₹100 given breaks down honestly.</p>
-          
-          <div className="w-full flex h-8 border border-[var(--rule)] rounded-[var(--radius-control)] overflow-hidden bg-[var(--paper)] mb-4">
-            <div className="bg-[var(--haldi)] h-full border-r border-[var(--rule)]" style={{ width: '2.1%' }} title="₹2.10 payment gateway"></div>
-            <div className="bg-[var(--ink-40)] h-full border-r border-[var(--rule)]" style={{ width: '6%' }} title="₹6 operations"></div>
-            <div className="bg-[var(--sindoor)] h-full" style={{ width: '91.9%' }} title="₹91.90 to the ground"></div>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 text-small font-num text-[var(--ink)]">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[var(--haldi)] rounded-sm border border-[var(--rule)]"></div>
-              <span>₹2.10 payment gateway</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[var(--ink-40)] rounded-sm border border-[var(--rule)]"></div>
-              <span>₹6 operations</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-[var(--sindoor)] rounded-sm border border-[var(--rule)]"></div>
-              <span>₹91.90 to the ground</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 7. Your date */}
-      <section className="w-full px-5 py-[var(--spacing-4u)] bg-[var(--haldi)] text-[var(--paper)] mt-[var(--spacing-2u)] relative z-[var(--z-content)]">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-[var(--spacing-2u)] items-center">
-          <div>
-            <h2 className="text-h1 mb-4 text-[var(--paper)]">Your date</h2>
-            <p className="text-body mb-8 text-[var(--paper)] opacity-90">
-              Pick a day of the month that means something to you — a birthday, a tithi, an anniversary. Every month on that date, we'll send you a WhatsApp message acknowledging your reason, and then debit your chosen amount.
+            <p className="text-gray-700 text-lg md:text-xl font-medium mb-8 max-w-md">
+              ₹51 feeds a cow for a day. ₹251 cleans a ghat. We publish every rupee in the Khata, every Sunday.
             </p>
-            <Link href="/your-date" className="bg-[var(--paper)] text-[var(--haldi)] px-6 py-3 rounded-[var(--radius-control)] font-semibold text-body inline-flex items-center hover:bg-opacity-90 transition-colors">
-              Pick your date
-            </Link>
+            <div className="bg-white rounded-2xl p-6 shadow-sm border border-orange-200 mb-6">
+              <h3 className="font-heading font-bold text-gray-900 mb-4 text-lg">Week 38 Ledger (14–20 Sep 2026)</h3>
+              <div className="space-y-2 text-sm font-medium">
+                <div className="flex justify-between"><span className="text-gray-600">Received</span><span className="text-gray-900">₹ 4,18,210</span></div>
+                <div className="flex justify-between"><span className="text-gray-600">Deployed</span><span className="text-primary font-bold">₹ 3,86,000</span></div>
+                <div className="flex justify-between pt-2 border-t border-gray-100"><span className="text-gray-600">Not yet deployed</span><span className="text-orange-500">₹ 32,210</span></div>
+              </div>
+            </div>
+            <HeroCTA />
           </div>
-          
-          <div className="bg-[var(--paper)] rounded-[var(--radius-card)] p-6 text-[var(--ink)] shadow-line">
-            <div className="text-h3 mb-4 border-b border-[var(--rule)] pb-4">Set your monthly mandate</div>
-            <div className="grid grid-cols-7 gap-2 mb-6">
-              {Array.from({length: 31}, (_, i) => (
-                <div key={i} className={`aspect-square flex items-center justify-center text-small font-medium rounded-sm ${i === 10 ? 'bg-[var(--sindoor)] text-[var(--paper)]' : 'bg-[var(--paper)] text-[var(--ink-60)] hover:bg-[var(--rule)] cursor-pointer border border-[var(--rule)] border-opacity-30'}`}>
-                  {i + 1}
-                </div>
-              ))}
-            </div>
-            <div className="flex justify-between items-center text-small border-t border-[var(--rule)] pt-4">
-              <span className="font-medium">Selected: 11th of every month</span>
-              <span className="text-[var(--ink-60)]">Cancel anytime via WhatsApp</span>
-            </div>
+          <div className="w-full lg:w-[55%] lg:min-h-[500px]">
+            <ImageCarousel images={[
+              { src: 'https://images.unsplash.com/photo-1677128912094-36d988ce198b?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200', alt: 'Anna Daan', caption: 'Anna Daan bhandara. 19 Sep 2026.' },
+              { src: 'https://images.pexels.com/photos/38937794/pexels-photo-38937794.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', alt: 'Gau Seva', caption: 'Gau Seva, gaushala. 18 Sep 2026.' },
+              { src: 'https://images.pexels.com/photos/15119089/pexels-photo-15119089.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940', alt: 'Vidya Daan', caption: 'Vidya Daan, village school. 17 Sep 2026.' }
+            ]} />
           </div>
         </div>
       </section>
 
-      {/* 8. The Khata / Transparency Ledger */}
-      <section className="w-full px-5 py-[var(--spacing-4u)] bg-[var(--ink)] text-[var(--paper)] relative z-[var(--z-content)]">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-[var(--spacing-2u)] gap-6">
+      {/* Sevas Section */}
+      <section className="w-full bg-white py-24 md:py-32">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8">
+
+          {/* Section header */}
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6">
             <div>
-              <h2 className="text-h1 mb-2 text-[var(--paper)]">The Khata</h2>
-              <p className="text-body text-[var(--paper)] opacity-70">The bound book of accounts. Checked and published every Sunday.</p>
+              <span className="inline-block rounded-full border border-gray-200 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-gray-500 mb-4">
+                Six causes. Six open ledgers.
+              </span>
+              <h2 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 leading-tight">
+                Pick a seva.<br/>See where it lands.
+              </h2>
             </div>
-            <div className="text-right">
-              <div className="text-num text-h2 mb-1">₹ 1,42,85,100</div>
-              <div className="text-small text-[var(--paper)] opacity-70">Lifetime deployed</div>
-            </div>
+            <p className="text-gray-500 text-base max-w-sm leading-relaxed">
+              Every seva has its own account. A gift to Gau Seva can never be spent on anything else — no pooling, no internal transfers.
+            </p>
           </div>
-          
-          <div className="overflow-x-auto pb-4">
-            <table className="w-full text-left border-collapse min-w-[800px]">
-              <caption className="sr-only">Ledger entries for the recent week, detailing received and deployed amounts by cause.</caption>
-              <thead>
-                <tr className="border-b border-[var(--rule)] border-opacity-30">
-                  <th scope="col" className="py-3 px-4 text-small font-medium opacity-70 w-24">Week</th>
-                  <th scope="col" className="py-3 px-4 text-small font-medium opacity-70 w-32">Dates</th>
-                  <th scope="col" className="py-3 px-4 text-small font-medium opacity-70">Cause</th>
-                  <th scope="col" className="py-3 px-4 text-small font-medium opacity-70 text-right">Received</th>
-                  <th scope="col" className="py-3 px-4 text-small font-medium opacity-70 text-right text-[var(--sindoor)]">Deployed</th>
-                  <th scope="col" className="py-3 px-4 text-small font-medium opacity-70">Where</th>
-                </tr>
-              </thead>
-              <tbody className="text-body">
-                <tr className="border-b border-[var(--rule)] border-opacity-20 hover:bg-white/5 transition-colors cursor-pointer">
-                  <td className="py-4 px-4 font-medium">38</td>
-                  <td className="py-4 px-4">14–20 Sep</td>
-                  <td className="py-4 px-4">Food</td>
-                  <td className="py-4 px-4 text-right font-num">1,12,400</td>
-                  <td className="py-4 px-4 text-right font-num text-[var(--sindoor)]">1,04,000</td>
-                  <td className="py-4 px-4 text-[var(--paper)] opacity-90">Sabarmati kitchen</td>
-                </tr>
-                <tr className="border-b border-[var(--rule)] border-opacity-20 hover:bg-white/5 transition-colors cursor-pointer">
-                  <td className="py-4 px-4 font-medium">38</td>
-                  <td className="py-4 px-4">14–20 Sep</td>
-                  <td className="py-4 px-4">Gau seva</td>
-                  <td className="py-4 px-4 text-right font-num">86,200</td>
-                  <td className="py-4 px-4 text-right font-num text-[var(--sindoor)]">86,200</td>
-                  <td className="py-4 px-4 text-[var(--paper)] opacity-90">Goshala, Dholka</td>
-                </tr>
-                <tr className="border-b border-[var(--rule)] border-opacity-20 hover:bg-white/5 transition-colors cursor-pointer text-[var(--haldi)]">
-                  <td className="py-4 px-4 font-medium text-[var(--paper)]">38</td>
-                  <td className="py-4 px-4 text-[var(--paper)]">14–20 Sep</td>
-                  <td className="py-4 px-4">Unallocated</td>
-                  <td className="py-4 px-4 text-right font-num">79,610</td>
-                  <td className="py-4 px-4 text-right font-num text-[var(--paper)] opacity-50">0</td>
-                  <td className="py-4 px-4">held</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          
-          <div className="mt-6">
-            <Link href="/khata" className="inline-flex items-center gap-2 text-small font-semibold border border-[var(--rule)] border-opacity-30 px-4 py-2 rounded-[var(--radius-control)] hover:bg-white/10 transition-colors">
-              Open the full book
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* 9. Field notes */}
-      <section className="w-full px-5 py-[var(--spacing-3u)]">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-h2 mb-[var(--spacing-1u)]">Field notes</h2>
-          
-          <div className="flex flex-col border-t border-[var(--rule)] relative z-[var(--z-content)] bg-[var(--paper)]">
-            <Link href="/field-notes/kitchen-supplies" className="py-5 border-b border-[var(--rule)] flex flex-col sm:flex-row justify-between sm:items-center hover:bg-[var(--card)] transition-colors group">
-              <span className="text-h3 group-hover:text-[var(--sindoor)] transition-colors mb-1 sm:mb-0">New grain delivery at the kitchen</span>
-              <span className="text-small text-[var(--ink-60)]">Sabarmati, Ahmedabad. 18 Sep 2026.</span>
-            </Link>
-            <Link href="/field-notes/goshala-shed" className="py-5 border-b border-[var(--rule)] flex flex-col sm:flex-row justify-between sm:items-center hover:bg-[var(--card)] transition-colors group">
-              <span className="text-h3 group-hover:text-[var(--sindoor)] transition-colors mb-1 sm:mb-0">Roof repairs completed before rain</span>
-              <span className="text-small text-[var(--ink-60)]">Dholka. 15 Sep 2026.</span>
-            </Link>
-            <Link href="/field-notes/school-books" className="py-5 border-b border-[var(--rule)] flex flex-col sm:flex-row justify-between sm:items-center hover:bg-[var(--card)] transition-colors group">
-              <span className="text-h3 group-hover:text-[var(--sindoor)] transition-colors mb-1 sm:mb-0">Term books distributed to 45 students</span>
-              <span className="text-small text-[var(--ink-60)]">Viramgam. 12 Sep 2026.</span>
-            </Link>
-          </div>
-          
-          <div className="mt-8 relative z-[var(--z-content)]">
-            <Link href="/field-notes" className="text-body font-semibold underline underline-offset-2 hover:text-[var(--ink-60)] transition-colors">
-              Read all notes
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. Accountability block */}
-      <section className="w-full px-5 py-[var(--spacing-3u)]">
-        <div className="max-w-[1200px] mx-auto">
-          <h2 className="text-h2 mb-[var(--spacing-1u)]">Who is accountable</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start relative z-[var(--z-content)]">
-            <div className="flex flex-col gap-2">
-              <div className="w-full aspect-[3/2] border border-[var(--rule)] bg-[var(--rule)] overflow-hidden rounded-none">
-                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="The Trustees" className="object-cover w-full h-full grayscale opacity-90" />
+          {/* "Where needed most" featured card */}
+          <div className="p-1.5 rounded-[2rem] bg-gray-900 ring-1 ring-black/10 mb-8">
+            <div className="rounded-[calc(2rem-0.375rem)] bg-gray-900 overflow-hidden">
+              <div className="flex flex-col md:flex-row min-h-[260px] max-h-[1000px]">
+                <div className="w-full md:w-[50%] relative overflow-hidden min-h-[240px] md:min-h-0">
+                  <img
+                    src={causes[3].image}
+                    alt="Where needed most"
+                    className="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent to-gray-900/80 hidden md:block pointer-events-none" />
+                </div>
+                <div className="w-full md:w-[50%] p-8 md:p-12 flex flex-col justify-center">
+                  <span className="inline-block rounded-full bg-primary/20 border border-primary/30 px-3 py-1 text-[10px] uppercase tracking-[0.2em] font-medium text-primary mb-6 w-max">
+                    Most urgent right now
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-3">
+                    Give where it is needed most
+                  </h3>
+                  <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                    Not sure which seva to pick? Give to the fund. We deploy it to the cause with the largest shortfall that week, publish the allocation in The Khata, and send you a receipt.
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      href="/give?cause=urgent"
+                      className="group inline-flex items-center gap-2 bg-primary text-white rounded-full px-7 py-3 text-sm font-bold transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-hover active:scale-[0.98]"
+                    >
+                      Give to the urgent fund
+                    </Link>
+                    <span className="text-gray-500 text-xs">Any amount from ₹51</span>
+                  </div>
+                </div>
               </div>
-              <p className="text-small text-[var(--ink-60)]">Ramesh Patel, Sunita Desai, Vikram Shah. 12 Jan 2026.</p>
             </div>
-            
-            <div className="flex flex-col gap-6">
-              <p className="text-body bg-[var(--paper)]">
-                September is governed by a registered public charitable trust. The trustees named above are legally responsible for every rupee.
-              </p>
+          </div>
+
+          {/* Six causa cards — asymmetric bento */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {causes.map((cause) => (
+              <div
+                key={cause.id}
+                className="p-1.5 rounded-[1.5rem] bg-gray-50 ring-1 ring-black/5 group transition-all duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1"
+              >
+                <div className="rounded-[calc(1.5rem-0.375rem)] bg-white overflow-hidden flex flex-col shadow-[inset_0_1px_1px_rgba(255,255,255,0.8)]">
+                  {/* Image */}
+                  <div className="h-[200px] relative overflow-hidden">
+                    <img
+                      src={cause.image}
+                      className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105"
+                      alt={cause.title}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                    <div className="absolute bottom-3 left-4">
+                      <p className="text-white/60 text-[11px] font-medium tracking-wide">{cause.sanskrit}</p>
+                      <p className="text-white font-heading font-bold text-lg leading-tight">{cause.title}</p>
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <span className="bg-green-700/90 backdrop-blur-sm text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">
+                        80G
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Body */}
+                  <div className="p-5 flex flex-col flex-1">
+                    <p className="text-sm text-gray-600 leading-relaxed mb-5 flex-1">{cause.blurb}</p>
+
+                    <div className="border-t border-gray-100 pt-4 flex items-center justify-between">
+                      <div>
+                        <p className="text-[11px] text-gray-400 uppercase tracking-wider">{cause.unitLabel}</p>
+                        <p className="text-xl font-heading font-bold text-gray-900">₹{cause.unitInr}</p>
+                      </div>
+                      <Link
+                        href={`/give?cause=${cause.id}`}
+                        className="group/btn inline-flex items-center justify-center gap-2 bg-primary text-white rounded-full px-5 py-2 text-sm font-bold shadow-md shadow-primary/30 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-primary-hover active:scale-[0.98]"
+                      >
+                        Give ₹{cause.unitInr}
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* Your Date (Donate Monthly style) */}
+      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-10 md:py-16">
+        <div className="text-center mb-10">
+          <p className="text-gray-500 font-medium text-sm tracking-wide uppercase mb-2">Give on a day that matters</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">Your date, every month</h2>
+          <p className="text-gray-600 max-w-2xl mx-auto mt-4">Pick a birthday, anniversary, or punya tithi. We send a WhatsApp reminder, debit your chosen amount, and publish the receipt in that week's Khata.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {title: "In Memory", sub: "Honor a departed loved one every month on their punya tithi."},
+            {title: "Birthdays", sub: "Celebrate the gift of life by giving back on a birthday."},
+            {title: "Festival Giving", sub: "Commit to monthly support on a day of religious significance."}
+          ].map((item, i) => (
+            <div key={i} className="bg-white rounded-2xl shadow-[0_4px_20px_rgb(0,0,0,0.05)] border border-gray-100 overflow-hidden flex flex-col">
+              <div className="h-[180px] relative bg-blue-50 overflow-hidden">
+                <img src={i === 0 ? causes[0].image : i === 1 ? causes[4].image : causes[2].image} className="w-full h-full object-cover opacity-80" alt={item.title} />
+              </div>
+              <div className="p-6 flex flex-col flex-1 items-center text-center">
+                <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
+                <p className="text-sm text-gray-500 mb-6">{item.sub}</p>
+                <div className="w-full border-t border-gray-100 pt-5 mt-auto flex justify-between items-center">
+                  <div className="text-left">
+                    <p className="text-xs text-gray-500">Starts from</p>
+                    <p className="font-bold text-secondary text-lg">₹500<span className="text-xs font-normal text-gray-500">/monthly</span></p>
+                  </div>
+                  <Link href="/your-date" className="bg-secondary text-white rounded-full px-5 py-2 text-sm font-bold shadow-md shadow-secondary/30 hover:bg-secondary-hover transition-colors">
+                    Set my date
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* The Gap (Medical Emergencies style) */}
+      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-10 md:py-16 bg-gray-50">
+        <div className="text-center mb-10">
+          <p className="text-gray-500 font-medium text-sm tracking-wide uppercase mb-2">Needs that are short right now</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">Close the gap this week</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Gap Card 1 */}
+          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 overflow-hidden flex flex-col sm:flex-row group hover:-translate-y-1 transition-transform duration-300">
+            <div className="w-full sm:w-[40%] h-[200px] sm:h-auto relative">
+              <img src={causes[3].image} className="w-full h-full object-cover" alt="Kitchen" />
+              <div className="absolute top-0 left-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-br-lg uppercase tracking-wider">
+                Urgent Shortfall
+              </div>
+            </div>
+            <div className="p-6 flex flex-col flex-1 w-full sm:w-[60%]">
+              <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">Anna Daan needs support this month</h3>
+              <p className="text-xs text-gray-500 flex items-center gap-1 mb-4">Daily bhandara · shortfall this week</p>
               
-              <div className="flex flex-col border border-[var(--rule)] rounded-[var(--radius-card)] overflow-hidden bg-[var(--card)]">
-                <Link href="/reports/trust-deed.pdf" className="px-5 py-4 border-b border-[var(--rule)] flex justify-between items-center hover:bg-[var(--rule)] transition-colors">
-                  <span className="font-medium">Trust Deed</span>
-                  <Download size={16} className="text-[var(--ink-60)]" />
-                </Link>
-                <Link href="/reports/audit-2025.pdf" className="px-5 py-4 border-b border-[var(--rule)] flex justify-between items-center hover:bg-[var(--rule)] transition-colors">
-                  <span className="font-medium">Audited Statement (2025-26)</span>
-                  <Download size={16} className="text-[var(--ink-60)]" />
-                </Link>
-                <div className="px-5 py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                  <span className="font-medium">Direct Bank Transfer</span>
-                  <span className="text-small font-num bg-[var(--paper)] px-2 py-1 border border-[var(--rule)] rounded-[var(--radius-control)]">A/C 50200012345678 · HDFC0001234</span>
+              <div className="mt-auto w-full">
+                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
+                  <div className="h-full bg-primary rounded-full" style={{ width: '58.9%' }}></div>
+                </div>
+                <div className="flex justify-between items-center text-xs font-medium">
+                  <div className="flex flex-col"><span className="text-gray-900 font-bold">₹22,400</span><span className="text-gray-500">Received</span></div>
+                  <div className="flex flex-col text-right"><span className="text-primary font-bold">₹38,000</span><span className="text-gray-500">Needed</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Gap Card 2 */}
+          <div className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 overflow-hidden flex flex-col sm:flex-row group hover:-translate-y-1 transition-transform duration-300">
+            <div className="w-full sm:w-[40%] h-[200px] sm:h-auto relative">
+              <img src={causes[2].image} className="w-full h-full object-cover" alt="Goshala" />
+              <div className="absolute top-0 left-0 bg-red-500 text-white text-[10px] font-bold px-3 py-1 rounded-br-lg uppercase tracking-wider">
+                Urgent Shortfall
+              </div>
+            </div>
+            <div className="p-6 flex flex-col flex-1 w-full sm:w-[60%]">
+              <h3 className="font-heading font-bold text-gray-900 text-lg mb-2">Gau Seva gaushala is short this week</h3>
+              <p className="text-xs text-gray-500 flex items-center gap-1 mb-4">Gaushala feed & care · veterinary shortfall</p>
+              
+              <div className="mt-auto w-full">
+                <div className="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
+                  <div className="h-full bg-primary rounded-full" style={{ width: '22.7%' }}></div>
+                </div>
+                <div className="flex justify-between items-center text-xs font-medium">
+                  <div className="flex flex-col"><span className="text-gray-900 font-bold">₹4,100</span><span className="text-gray-500">Received</span></div>
+                  <div className="flex flex-col text-right"><span className="text-primary font-bold">₹18,000</span><span className="text-gray-500">Needed</span></div>
                 </div>
               </div>
             </div>
@@ -376,50 +322,316 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 11. Footer */}
-      <footer className="w-full px-5 py-[var(--spacing-3u)] bg-[var(--paper)] border-t border-[var(--rule)] mt-[var(--spacing-2u)] relative z-[var(--z-content)]">
-        <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Compliance block */}
-          <div className="md:col-span-2 flex flex-col gap-4 text-small text-[var(--ink)]">
-            <Link href="/" className="text-h3 border-b border-[var(--ink)] pb-[1px] w-max leading-none mb-2">
-              september
-            </Link>
-            <p>September Charitable Trust</p>
-            <p className="opacity-80">
-              Reg. No: E/12345/Ahmedabad <br/>
-              12A: AABCD1234E12A <br/>
-              80G: AABCD1234E80G <br/>
-              CSR-1: CSR12345678 <br/>
-              Darpan ID: GJ/2026/123456 <br/>
-              PAN: AABCD1234E
+      {/* The Khata (Most Trusted Platform blue section) */}
+      <section className="w-full py-16 md:py-24 relative overflow-hidden bg-blue-dark">
+        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
+        <div className="absolute -top-[50%] -left-[10%] w-[120%] h-[200%] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue-500/20 via-transparent to-transparent pointer-events-none"></div>
+        
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+          <div className="w-full lg:w-[45%] text-white text-center lg:text-left">
+            <p className="text-blue-200 font-medium text-sm tracking-wide uppercase mb-3">Open ledger, published every Sunday</p>
+            <h2 className="text-4xl md:text-5xl font-heading font-extrabold mb-6 leading-tight">The Khata</h2>
+            <p className="text-blue-100 text-lg mb-8 leading-relaxed max-w-lg mx-auto lg:mx-0">
+              Every rupee received, every rupee deployed, and where it went. Verified by a chartered firm. Check it yourself.
             </p>
-            <p className="opacity-80 mt-2">
-              401, Sapphire Towers, <br/>
-              Navrangpura, Ahmedabad 380009 <br/>
-              +91 79 2640 1234
-            </p>
-            <p className="opacity-80 mt-2">
-              Grievance Officer: Sunita Desai <br/>
-              grievance@september.org
-            </p>
+            <div className="grid grid-cols-2 gap-4 max-w-sm mx-auto lg:mx-0">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
+                <p className="text-2xl font-bold text-white">₹ 1.42 Cr+</p>
+                <p className="text-xs text-blue-200 uppercase tracking-wider mt-1">Lifetime Deployed</p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-4 text-center">
+                <p className="text-2xl font-bold text-white">100%</p>
+                <p className="text-xs text-blue-200 uppercase tracking-wider mt-1">Transparent</p>
+              </div>
+            </div>
           </div>
           
-          <div className="flex flex-col gap-3 text-small">
-            <h4 className="font-bold mb-2 text-body">Links</h4>
-            <Link href="/causes" className="hover:underline underline-offset-2">Causes</Link>
-            <Link href="/khata" className="hover:underline underline-offset-2">The Khata</Link>
-            <Link href="/your-date" className="hover:underline underline-offset-2">Monthly giving</Link>
-            <Link href="/field-notes" className="hover:underline underline-offset-2">Field notes</Link>
-            <Link href="/who" className="hover:underline underline-offset-2">Who is accountable</Link>
-            <Link href="/reports" className="hover:underline underline-offset-2">Annual reports</Link>
+          <div className="w-full lg:w-[55%]">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden p-6">
+              <div className="flex justify-between items-center mb-6">
+                <h3 className="font-heading font-bold text-gray-900 text-xl">Recent Ledger Entries</h3>
+                <Link href="/khata" className="text-sm font-semibold text-secondary hover:underline">Open the full Khata</Link>
+              </div>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-sm border-collapse min-w-[500px]">
+                  <thead>
+                    <tr className="bg-gray-50 border-b border-gray-100">
+                      <th className="py-3 px-4 font-semibold text-gray-700 rounded-tl-lg">Cause</th>
+                      <th className="py-3 px-4 font-semibold text-gray-700 text-right">Received</th>
+                      <th className="py-3 px-4 font-semibold text-gray-700 text-right text-primary">Deployed</th>
+                      <th className="py-3 px-4 font-semibold text-gray-700 rounded-tr-lg">Where</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                      <td className="py-4 px-4 font-medium text-gray-900">Food</td>
+                      <td className="py-4 px-4 text-right font-medium">₹1,12,400</td>
+                      <td className="py-4 px-4 text-right font-bold text-primary">₹1,04,000</td>
+                      <td className="py-4 px-4 text-gray-600 text-xs">Sabarmati kitchen</td>
+                    </tr>
+                    <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                      <td className="py-4 px-4 font-medium text-gray-900">Gau seva</td>
+                      <td className="py-4 px-4 text-right font-medium">₹86,200</td>
+                      <td className="py-4 px-4 text-right font-bold text-primary">₹86,200</td>
+                      <td className="py-4 px-4 text-gray-600 text-xs">Goshala, Dholka</td>
+                    </tr>
+                    <tr className="border-b border-gray-100 hover:bg-gray-50/50 transition-colors">
+                      <td className="py-4 px-4 font-medium text-gray-900">Temple repair</td>
+                      <td className="py-4 px-4 text-right font-medium">₹1,40,000</td>
+                      <td className="py-4 px-4 text-right font-bold text-primary">₹96,000</td>
+                      <td className="py-4 px-4 text-gray-600 text-xs">Ranchhodji, Dakor</td>
+                    </tr>
+                    <tr className="bg-orange-50/50 border-b border-orange-100 hover:bg-orange-50 transition-colors">
+                      <td className="py-4 px-4 font-medium text-orange-800">Unallocated</td>
+                      <td className="py-4 px-4 text-right font-medium text-orange-800">₹79,610</td>
+                      <td className="py-4 px-4 text-right font-bold text-orange-400">₹0</td>
+                      <td className="py-4 px-4 text-orange-600 text-xs">held</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Follow the rupee (How it works?) */}
+      <section className="w-full relative py-16 md:py-24 bg-gray-900">
+        <div className="absolute inset-0 opacity-30">
+          <img src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=1600&auto=format&fit=crop" alt="Background" className="w-full h-full object-cover opacity-40 mix-blend-overlay" />
+        </div>
+        
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center md:text-left mb-12">
+            <p className="text-gray-400 font-medium text-sm tracking-wide uppercase mb-2">Of every ₹100 you give</p>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">₹91.90 reaches the ground</h2>
           </div>
           
-          <div className="flex flex-col gap-3 text-small">
-            <h4 className="font-bold mb-2 text-body">Legal</h4>
-            <Link href="/legal/refund" className="hover:underline underline-offset-2">Refund policy</Link>
-            <Link href="/legal/privacy" className="hover:underline underline-offset-2">Privacy policy</Link>
-            <Link href="/legal/terms" className="hover:underline underline-offset-2">Terms of service</Link>
-            <Link href="/contact" className="hover:underline underline-offset-2">Contact us</Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <h3 className="font-heading font-bold text-gray-900 text-2xl mb-8">Where your money goes</h3>
+              <div className="space-y-8 mb-10">
+                <div className="flex gap-4">
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-primary">₹</div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Payment Gateway</h4>
+                    <p className="text-sm text-gray-600">₹2.10 goes to processing fees for secure transactions.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-primary"><Building2 size={20}/></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Operations</h4>
+                    <p className="text-sm text-gray-600">₹6.00 covers our operational costs and logistics.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="bg-orange-100 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-primary"><Heart size={20}/></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">To the ground</h4>
+                    <p className="text-sm text-gray-600">₹91.90 goes directly to the cause you selected.</p>
+                  </div>
+                </div>
+              </div>
+              <Link href="/khata" className="block w-full text-center bg-primary text-white py-3 rounded-full font-bold shadow-md shadow-primary/30 hover:bg-primary-hover transition-colors">
+                Open the Khata
+              </Link>
+            </div>
+            
+            <div className="bg-white rounded-2xl p-8 shadow-xl">
+              <h3 className="font-heading font-bold text-gray-900 text-2xl mb-8">Why it matters</h3>
+              <div className="space-y-8 mb-10">
+                <div className="flex gap-4">
+                  <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-secondary"><FileText size={20}/></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Full Accountability</h4>
+                    <p className="text-sm text-gray-600">Every single rupee is tracked, documented, and published.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-secondary"><ShieldCheck size={20}/></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Verified Impact</h4>
+                    <p className="text-sm text-gray-600">We personally verify every end-destination of your funds.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="bg-blue-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0 text-secondary"><Smartphone size={20}/></div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1">Direct Updates</h4>
+                    <p className="text-sm text-gray-600">Receive WhatsApp updates on how your donation is used.</p>
+                  </div>
+                </div>
+              </div>
+              <Link href="/field-notes" className="block w-full text-center bg-secondary text-white py-3 rounded-full font-bold shadow-md shadow-secondary/30 hover:bg-secondary-hover transition-colors">
+                Read this week's field notes
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Field notes (Testimonials) */}
+      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-16 text-center">
+        <p className="text-gray-500 font-medium text-sm tracking-wide uppercase mb-2">Dispatches from the field, this week</p>
+        <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900 mb-8">Where the money landed</h2>
+        
+        <div className="flex justify-center gap-4 mb-10">
+          <button className="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold shadow-md shadow-primary/30 transition-colors hover:bg-primary-hover">Latest</button>
+          <button className="bg-gray-100 text-gray-700 px-6 py-2 rounded-full text-sm font-bold transition-colors hover:bg-gray-200 hover:text-gray-900">Food</button>
+          <button className="bg-gray-100 text-gray-700 px-6 py-2 rounded-full text-sm font-bold transition-colors hover:bg-gray-200 hover:text-gray-900">Education</button>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          <div className="bg-white border border-gray-100 shadow-lg shadow-gray-200/50 rounded-2xl p-6 flex flex-col">
+            <span className="text-4xl text-gray-300 font-serif leading-none mb-2">"</span>
+            <p className="text-gray-700 text-sm mb-6 flex-1">New grain delivery arrived safely at the Sabarmati kitchen this morning. Ready for the week's meals.</p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500"><User size={18}/></div>
+              <div>
+                <p className="font-bold text-sm text-gray-900">Sabarmati Kitchen</p>
+                <p className="text-xs text-gray-500">Ahmedabad, 18 Sep 2026</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white border border-gray-100 shadow-lg shadow-gray-200/50 rounded-2xl p-6 flex flex-col">
+            <span className="text-4xl text-gray-300 font-serif leading-none mb-2">"</span>
+            <p className="text-gray-700 text-sm mb-6 flex-1">Roof repairs completed just before the heavy rains. The cows are dry and safe.</p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500"><User size={18}/></div>
+              <div>
+                <p className="font-bold text-sm text-gray-900">Dholka Goshala</p>
+                <p className="text-xs text-gray-500">Dholka, 15 Sep 2026</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-white border border-gray-100 shadow-lg shadow-gray-200/50 rounded-2xl p-6 flex flex-col">
+            <span className="text-4xl text-gray-300 font-serif leading-none mb-2">"</span>
+            <p className="text-gray-700 text-sm mb-6 flex-1">Term books successfully distributed to 45 students across three classes today.</p>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-gray-500"><User size={18}/></div>
+              <div>
+                <p className="font-bold text-sm text-gray-900">Viramgam School</p>
+                <p className="text-xs text-gray-500">Viramgam, 12 Sep 2026</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Accountability (Why Donatekart? style) */}
+      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-16 bg-gray-50 border-t border-gray-200">
+        <div className="text-center mb-12">
+          <p className="text-gray-500 font-medium text-sm tracking-wide uppercase mb-2">Trust is a document, not a promise</p>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">Verify us yourself</h2>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
+            <div className="bg-orange-50 text-primary p-3 rounded-xl"><FileText size={24}/></div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-1">Trust Deed</h3>
+              <p className="text-xs text-gray-500 mb-2">September is governed by a registered public charitable trust.</p>
+              <Link href="/reports/trust-deed.pdf" className="text-primary text-xs font-semibold hover:underline">Download PDF</Link>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
+            <div className="bg-orange-50 text-primary p-3 rounded-xl"><ShieldCheck size={24}/></div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-1">Audited Statement</h3>
+              <p className="text-xs text-gray-500 mb-2">Verified finances for 2025-26 by independent auditors.</p>
+              <Link href="/reports/audit-2025.pdf" className="text-primary text-xs font-semibold hover:underline">Download PDF</Link>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-2xl border border-gray-100 p-6 flex items-start gap-4">
+            <div className="bg-orange-50 text-primary p-3 rounded-xl"><Building2 size={24}/></div>
+            <div>
+              <h3 className="font-bold text-gray-900 mb-1">Bank Transfer</h3>
+              <p className="text-xs text-gray-500">A/C 50200012345678</p>
+              <p className="text-xs text-gray-500">IFSC HDFC0001234</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Pre-footer CTA */}
+      <section className="w-full">
+        <div className="flex flex-col md:flex-row">
+          <div className="w-full md:w-1/2 bg-primary p-12 md:p-20 flex flex-col justify-center text-white">
+            <h2 className="text-4xl md:text-5xl font-heading font-extrabold leading-tight mb-4">
+              ₹51 feeds a cow.<br/>₹251 cleans a ghat.<br/>₹501 serves a meal.
+            </h2>
+            <p className="text-white/80 text-lg mb-8 max-w-md">Pick a seva. We publish where it went.</p>
+            <div>
+              <Link href="/give" className="inline-block bg-white text-primary px-8 py-3 rounded-full font-bold shadow-lg hover:bg-gray-50 transition-colors">
+                Give ₹51
+              </Link>
+            </div>
+          </div>
+          <div className="w-full md:w-1/2 h-[400px] md:h-auto">
+            <img src={causes[4].image} alt="Impact" className="w-full h-full object-cover" />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 pt-16 pb-8 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div className="md:col-span-1">
+              <Link href="/" className="text-2xl font-heading font-extrabold text-primary tracking-tight mb-4 inline-block">
+                september
+              </Link>
+              <p className="text-sm text-gray-500 mb-6">Honest accounting for every cause. Track every contribution with complete transparency.</p>
+              <div className="flex gap-4">
+                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white cursor-pointer transition-colors">f</div>
+                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white cursor-pointer transition-colors">t</div>
+                <div className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center text-gray-600 hover:bg-primary hover:text-white cursor-pointer transition-colors">in</div>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4">Donate To</h4>
+              <ul className="space-y-3 text-sm text-gray-500">
+                <li><Link href="/causes" className="hover:text-primary transition-colors">Monthly Missions</Link></li>
+                <li><Link href="/causes/food" className="hover:text-primary transition-colors">Food</Link></li>
+                <li><Link href="/causes/gau-seva" className="hover:text-primary transition-colors">Gau Seva</Link></li>
+                <li><Link href="/causes/education" className="hover:text-primary transition-colors">Education</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4">Discover</h4>
+              <ul className="space-y-3 text-sm text-gray-500">
+                <li><Link href="/khata" className="hover:text-primary transition-colors">The Khata</Link></li>
+                <li><Link href="/field-notes" className="hover:text-primary transition-colors">Field Notes</Link></li>
+                <li><Link href="/who" className="hover:text-primary transition-colors">Accountability</Link></li>
+                <li><Link href="/reports" className="hover:text-primary transition-colors">Annual Reports</Link></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h4 className="font-bold text-gray-900 mb-4">Contact Us</h4>
+              <div className="text-sm text-gray-500 space-y-3">
+                <p className="font-medium text-gray-900">September Charitable Trust</p>
+                <p>401, Sapphire Towers,<br/>Navrangpura, Ahmedabad 380009</p>
+                <p>+91 79 2640 1234</p>
+                <p>grievance@september.org</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-400">
+            <p>Reg. No: E/12345/Ahmedabad | 12A: AABCD1234E12A | 80G: AABCD1234E80G | PAN: AABCD1234E</p>
+            <div className="flex gap-4">
+              <Link href="/legal/terms" className="hover:text-gray-700 transition-colors">Terms of Use</Link>
+              <Link href="/legal/privacy" className="hover:text-gray-700 transition-colors">Privacy Policy</Link>
+              <Link href="/legal/refund" className="hover:text-gray-700 transition-colors">Refund Policy</Link>
+            </div>
           </div>
         </div>
       </footer>

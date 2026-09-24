@@ -1,19 +1,16 @@
 import type { Metadata } from "next";
-import { Nunito_Sans, Hind } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 
-const nunitoSans = Nunito_Sans({
-  variable: "--font-display",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-// Since we also need Nunito_Sans for numerals (--font-num), we can just reuse the display font variable 
-// or set --font-num in globals.css to var(--font-display). In globals.css it's set to Nunito Sans.
-
-const hind = Hind({
-  variable: "--font-text",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["400", "500", "600"],
   display: "swap",
@@ -32,12 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${nunitoSans.variable} ${hind.variable} ruled-bg min-h-screen antialiased flex flex-col`}
-        style={{"--font-num": "var(--font-display)"} as React.CSSProperties}
+        className={`${poppins.variable} ${inter.variable} font-sans antialiased text-gray-800 bg-white`}
       >
-        <div className="relative z-content flex flex-col flex-1">
-          {children}
-        </div>
+        {children}
       </body>
     </html>
   );

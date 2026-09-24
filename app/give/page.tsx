@@ -2,24 +2,25 @@ import Link from 'next/link';
 
 export default function GiveCheckout() {
   return (
-    <main className="flex flex-col w-full min-h-screen bg-[var(--paper)]">
+    <main className="flex flex-col w-full min-h-screen bg-gray-50 font-sans">
+      
       {/* Checkout simplified nav */}
-      <nav className="w-full bg-[var(--paper)] py-4 px-5 flex justify-center border-b border-[var(--rule)] relative z-[var(--z-sticky)]">
-        <Link href="/" className="text-h3 text-[var(--ink)] border-b border-[var(--ink)] pb-[1px] leading-none">
+      <header className="sticky top-0 z-50 bg-white shadow-sm px-4 md:px-8 py-4 flex justify-center">
+        <Link href="/" className="text-2xl font-heading font-extrabold text-primary tracking-tight">
           september
         </Link>
-      </nav>
+      </header>
 
       {/* Checkout column */}
-      <div className="w-full max-w-[440px] mx-auto px-5 py-[var(--spacing-2u)] flex-1 relative z-[var(--z-content)] flex flex-col">
-        <h1 className="text-h2 mb-[var(--spacing-1u)] text-center">Give</h1>
+      <div className="w-full max-w-[440px] mx-auto px-4 py-10 flex-1 flex flex-col">
+        <h1 className="text-2xl font-heading font-bold text-gray-900 text-center mb-8">Give</h1>
         
-        <form className="flex flex-col gap-6 bg-[var(--card)] p-6 border border-[var(--rule)] rounded-[var(--radius-card)]">
+        <form className="bg-white rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-6 sm:p-8 flex flex-col gap-6">
           
           {/* 1. Cause */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="cause" className="text-small font-medium text-[var(--ink-60)]">Cause</label>
-            <select id="cause" defaultValue="gau-seva" className="w-full border border-[var(--rule)] rounded-[var(--radius-control)] bg-[var(--paper)] px-3 py-2 text-body focus:outline-none focus:border-[var(--ink)] transition-colors">
+            <label htmlFor="cause" className="text-sm font-semibold text-gray-700">Cause</label>
+            <select id="cause" defaultValue="gau-seva" className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
               <option value="gau-seva">Gau seva</option>
               <option value="food">Food</option>
               <option value="education">Education</option>
@@ -29,35 +30,35 @@ export default function GiveCheckout() {
 
           {/* 2. Amount */}
           <div className="flex flex-col gap-2">
-            <label className="text-small font-medium text-[var(--ink-60)]">Amount</label>
-            <div className="grid grid-cols-3 gap-2">
-              <button type="button" className="border border-[var(--rule)] rounded-[var(--radius-control)] py-2 text-body font-num text-center hover:bg-[var(--rule)] transition-colors">
+            <label className="text-sm font-semibold text-gray-700">Amount</label>
+            <div className="grid grid-cols-3 gap-3">
+              <button type="button" className="border border-gray-200 rounded-lg py-2.5 text-sm font-bold text-gray-600 hover:border-primary hover:text-primary transition-colors">
                 ₹ 501
               </button>
-              <button type="button" className="border border-[var(--ink)] bg-[var(--ink)] text-[var(--paper)] rounded-[var(--radius-control)] py-2 text-body font-num text-center shadow-line">
+              <button type="button" className="border-2 border-primary bg-primary/10 rounded-lg py-2.5 text-sm font-bold text-primary">
                 ₹ 1,100
               </button>
-              <button type="button" className="border border-[var(--rule)] rounded-[var(--radius-control)] py-2 text-body font-num text-center hover:bg-[var(--rule)] transition-colors">
+              <button type="button" className="border border-gray-200 rounded-lg py-2.5 text-sm font-bold text-gray-600 hover:border-primary hover:text-primary transition-colors">
                 ₹ 2,100
               </button>
-              <button type="button" className="border border-[var(--rule)] rounded-[var(--radius-control)] py-2 text-body font-num text-center hover:bg-[var(--rule)] transition-colors">
+              <button type="button" className="border border-gray-200 rounded-lg py-2.5 text-sm font-bold text-gray-600 hover:border-primary hover:text-primary transition-colors">
                 ₹ 5,100
               </button>
               <div className="col-span-2 relative">
-                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--ink-60)] font-num">₹</span>
-                <input type="number" placeholder="Other" className="w-full border border-[var(--rule)] rounded-[var(--radius-control)] bg-[var(--paper)] pl-7 pr-3 py-2 text-body font-num focus:outline-none focus:border-[var(--ink)] transition-colors" />
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 font-bold">₹</span>
+                <input type="number" placeholder="Other amount" className="w-full border border-gray-200 rounded-lg bg-gray-50 pl-8 pr-4 py-2.5 text-sm font-bold focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
               </div>
             </div>
           </div>
 
           {/* 3. Frequency */}
           <div className="flex flex-col gap-2">
-            <label className="text-small font-medium text-[var(--ink-60)]">Frequency</label>
-            <div className="flex bg-[var(--paper)] border border-[var(--rule)] rounded-[var(--radius-control)] p-1">
-              <button type="button" className="flex-1 bg-[var(--ink)] text-[var(--paper)] rounded-sm py-1.5 text-small font-medium shadow-line">
+            <label className="text-sm font-semibold text-gray-700">Frequency</label>
+            <div className="flex bg-gray-100 rounded-lg p-1">
+              <button type="button" className="flex-1 bg-white shadow-sm text-gray-900 rounded-md py-2 text-sm font-bold">
                 Once
               </button>
-              <button type="button" className="flex-1 text-[var(--ink-60)] rounded-sm py-1.5 text-small font-medium hover:bg-[var(--rule)] transition-colors">
+              <button type="button" className="flex-1 text-gray-500 rounded-md py-2 text-sm font-semibold hover:text-gray-700 transition-colors">
                 Every month
               </button>
             </div>
@@ -65,56 +66,56 @@ export default function GiveCheckout() {
 
           {/* 4. Name */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="name" className="text-small font-medium text-[var(--ink-60)]">Name</label>
-            <input type="text" id="name" required className="w-full border border-[var(--rule)] rounded-[var(--radius-control)] bg-[var(--paper)] px-3 py-2 text-body focus:outline-none focus:border-[var(--ink)] transition-colors" />
+            <label htmlFor="name" className="text-sm font-semibold text-gray-700">Name</label>
+            <input type="text" id="name" placeholder="Full name" required className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
           </div>
 
           {/* 5. Phone or email */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="contact" className="text-small font-medium text-[var(--ink-60)]">Phone or email</label>
-            <input type="text" id="contact" required className="w-full border border-[var(--rule)] rounded-[var(--radius-control)] bg-[var(--paper)] px-3 py-2 text-body focus:outline-none focus:border-[var(--ink)] transition-colors" />
+            <label htmlFor="contact" className="text-sm font-semibold text-gray-700">Phone or email</label>
+            <input type="text" id="contact" placeholder="To send your receipt" required className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
           </div>
 
           {/* 6. Sankalp line */}
           <div className="flex flex-col gap-2">
-            <label htmlFor="sankalp" className="text-small font-medium text-[var(--ink-60)]">Give in someone's name (optional)</label>
-            <input type="text" id="sankalp" maxLength={60} placeholder="e.g. In memory of Amma" className="w-full border border-[var(--rule)] rounded-[var(--radius-control)] bg-[var(--paper)] px-3 py-2 text-body focus:outline-none focus:border-[var(--ink)] transition-colors" />
+            <label htmlFor="sankalp" className="text-sm font-semibold text-gray-700">Give in someone's name (optional)</label>
+            <input type="text" id="sankalp" maxLength={60} placeholder="e.g. In memory of Amma" className="w-full border border-gray-200 rounded-lg bg-gray-50 px-4 py-3 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" />
           </div>
 
           {/* Checkboxes */}
-          <div className="flex flex-col gap-3 mt-2">
+          <div className="flex flex-col gap-4 mt-2">
             {/* 7. 80G */}
             <label className="flex items-start gap-3 cursor-pointer group">
-              <input type="checkbox" className="mt-1 w-4 h-4 rounded-sm border-[var(--rule)] text-[var(--ink)] focus:ring-[var(--ink)]" />
-              <span className="text-small">I want an 80G tax receipt</span>
+              <input type="checkbox" className="mt-0.5 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary" />
+              <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">I want an 80G tax receipt</span>
             </label>
             
             {/* 8. Fee coverage */}
             <label className="flex items-start gap-3 cursor-pointer group">
-              <input type="checkbox" defaultChecked className="mt-1 w-4 h-4 rounded-sm border-[var(--rule)] text-[var(--ink)] focus:ring-[var(--ink)]" />
-              <span className="text-small">Cover the transaction fee (₹24.00)</span>
+              <input type="checkbox" defaultChecked className="mt-0.5 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary" />
+              <span className="text-sm text-gray-600 group-hover:text-gray-900 transition-colors">Cover the transaction fee (₹24.00)</span>
             </label>
           </div>
 
           {/* 9. Button */}
-          <div className="mt-4 flex flex-col gap-3">
-            <button type="submit" className="w-full bg-[var(--sindoor)] text-[var(--paper)] py-3 rounded-[var(--radius-control)] font-semibold text-body hover:bg-opacity-90 transition-colors shadow-line">
-              Give ₹ 1,124
+          <div className="mt-2 flex flex-col gap-4">
+            <button type="submit" className="w-full bg-primary text-white py-3.5 rounded-full font-bold text-sm hover:bg-primary-hover transition-colors shadow-lg shadow-primary/20">
+              GIVE ₹ 1,124
             </button>
-            <div className="flex flex-col gap-1 text-center text-small text-[var(--ink-60)]">
+            <div className="flex flex-col gap-1.5 text-center text-xs text-gray-400 font-medium">
               <span>80G: AABCD1234E80G</span>
               <span>Book last updated Sunday 20 Sep</span>
-              <span>Receipt on WhatsApp in under a minute</span>
+              <span className="text-green-600">Receipt on WhatsApp in under a minute</span>
             </div>
           </div>
         </form>
       </div>
 
       {/* Footer compliance line */}
-      <footer className="w-full py-6 px-5 border-t border-[var(--rule)] bg-[var(--paper)] relative z-[var(--z-content)] text-center">
-        <p className="text-small text-[var(--ink-60)]">
-          September Charitable Trust. Reg. No: E/12345/Ahmedabad. <br/>
-          <Link href="/legal/terms" className="underline hover:text-[var(--ink)]">Terms</Link> · <Link href="/legal/privacy" className="underline hover:text-[var(--ink)]">Privacy</Link> · <Link href="/legal/refund" className="underline hover:text-[var(--ink)]">Refund</Link>
+      <footer className="w-full py-6 px-4 bg-white border-t border-gray-200 text-center mt-auto">
+        <p className="text-xs text-gray-400 font-medium">
+          September Charitable Trust. Reg. No: E/12345/Ahmedabad. <br className="sm:hidden"/>
+          <Link href="/legal/terms" className="hover:text-gray-600 transition-colors">Terms</Link> &middot; <Link href="/legal/privacy" className="hover:text-gray-600 transition-colors">Privacy</Link> &middot; <Link href="/legal/refund" className="hover:text-gray-600 transition-colors">Refund</Link>
         </p>
       </footer>
     </main>
