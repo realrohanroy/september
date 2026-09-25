@@ -100,10 +100,10 @@ export default function HeroSection() {
 
         {/* Content panel */}
         <div className="px-5 pt-6 pb-8 border-b border-rule">
-          <h1 className="font-heading font-bold text-ink leading-tight mb-3 text-[1.75rem]">
+          <h1 className="font-heading font-bold text-blue-600 leading-tight mb-3 text-[1.75rem]">
             ₹3,86,000 deployed last week.
             <br />
-            Every rupee named.
+            <span className="text-sindoor">Every rupee named.</span>
           </h1>
           <p className="text-ink/70 text-sm font-body leading-relaxed mb-6">
             We publish where every donation goes, every Sunday. No pooling. No vague reports.
@@ -174,7 +174,7 @@ export default function HeroSection() {
           <div className="absolute top-0 left-0 w-[3px] h-full bg-sindoor" />
 
           <div>
-            <h1 className="font-heading font-bold text-ink leading-[1.1] mb-4 text-4xl xl:text-5xl">
+            <h1 className="font-heading font-bold text-blue-600 leading-[1.1] mb-4 text-4xl xl:text-5xl">
               ₹3,86,000 deployed
               <br />last week.
               <br /><span className="text-sindoor">Every rupee named.</span>
