@@ -1,4 +1,4 @@
-import { pgTable, text, timestamp, integer, uuid, uniqueIndex } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, integer, uuid, uniqueIndex, index } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const donors = pgTable('donors', {
@@ -21,10 +21,15 @@ export const donations = pgTable('donations', {
   razorpayOrderId: text('razorpay_order_id'),
   razorpayPaymentId: text('razorpay_payment_id'),
   idempotencyKey: uuid('idempotency_key').notNull(),
+  failureReason: text('failure_reason'),       // Razorpay error code/description on payment.failed
+  ipAddress: text('ip_address'),               // Donor IP at order creation time (fraud signal)
+  referrerSource: text('referrer_source'),     // UTM source or page referrer
   createdAt: timestamp('created_at').defaultNow().notNull(),
   capturedAt: timestamp('captured_at'),
 }, (t) => [
   uniqueIndex('idx_donations_razorpay_order_id').on(t.razorpayOrderId),
+  index('idx_donations_status').on(t.status),
+  index('idx_donations_created_at').on(t.createdAt),
 ]);
 
 export const subscriptions = pgTable('subscriptions', {

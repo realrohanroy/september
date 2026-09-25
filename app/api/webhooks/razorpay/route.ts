@@ -86,11 +86,17 @@ export async function POST(req: NextRequest) {
       } else if (eventType === 'payment.failed') {
         const paymentEntity = event.payload.payment.entity;
         const orderId = paymentEntity.order_id;
+        // Compose a human-readable failure reason from Razorpay's error fields
+        const errorCode = paymentEntity.error_code ?? 'UNKNOWN';
+        const errorDesc = paymentEntity.error_description ?? paymentEntity.error_reason ?? 'No description provided';
+        const failureReason = `${errorCode}: ${errorDesc}`.slice(0, 500);
 
         await db.update(donations)
-          .set({ status: 'failed' })
+          .set({ status: 'failed', failureReason })
           .where(eq(donations.razorpayOrderId, orderId));
-          
+
+        logger.warn('Webhook: Payment failed', { orderId, failureReason });
+
       } else if (eventType === 'subscription.charged') {
         // Handle recurring charge logic (creates a new donation row)
         // Implementation for subscriptions can be expanded later

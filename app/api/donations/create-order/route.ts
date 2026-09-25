@@ -27,6 +27,10 @@ const createOrderSchema = z.object({
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+    // Capture donor IP (x-forwarded-for is set by Vercel/proxies)
+    const ipAddress = req.headers.get('x-forwarded-for')?.split(',')[0].trim() ?? req.headers.get('x-real-ip') ?? null;
+    // Capture referrer for campaign tracking (first 200 chars to avoid huge strings)
+    const referrerSource = (req.headers.get('referer') ?? req.headers.get('origin') ?? null)?.slice(0, 200) ?? null;
     const parsed = createOrderSchema.safeParse(body);
 
     if (!parsed.success) {
@@ -85,6 +89,8 @@ export async function POST(req: NextRequest) {
       status: 'created',
       razorpayOrderId: razorpayOrder.id,
       idempotencyKey: idempotencyKey,
+      ipAddress,
+      referrerSource,
     });
 
     logger.info('Create Order: Successfully created new order', { 
