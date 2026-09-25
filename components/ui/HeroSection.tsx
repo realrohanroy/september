@@ -116,7 +116,7 @@ export default function HeroSection() {
               <button
                 key={a.value}
                 onClick={() => setAmount(a.value)}
-                className={`flex flex-col items-center py-3 px-2 border rounded-[2px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-sindoor ${
+                className={`flex flex-col items-center py-3 px-2 border rounded-2xl transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-sindoor ${
                   amount === a.value
                     ? 'border-sindoor bg-sindoor/5'
                     : 'border-rule bg-card hover:border-ink/40'
@@ -135,7 +135,7 @@ export default function HeroSection() {
           {/* Full-width CTA */}
           <Link
             href={`/give?amount=${amount}`}
-            className="block w-full text-center bg-sindoor text-white font-bold text-base py-4 rounded-[2px] hover:opacity-90 active:translate-y-[1px] transition-all"
+            className="block w-full text-center bg-sindoor text-white font-bold text-base py-4 rounded-full hover:opacity-90 active:translate-y-[1px] transition-all"
           >
             Give ₹{amount}
           </Link>
@@ -190,7 +190,7 @@ export default function HeroSection() {
                 <button
                   key={a.value}
                   onClick={() => setAmount(a.value)}
-                  className={`flex flex-col items-center py-3 px-5 border rounded-[2px] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-sindoor ${
+                  className={`flex flex-col items-center py-3 px-5 border rounded-2xl transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-sindoor ${
                     amount === a.value
                       ? 'border-sindoor bg-sindoor/5'
                       : 'border-rule bg-card hover:border-ink/40'
@@ -209,7 +209,7 @@ export default function HeroSection() {
             <div className="flex items-center gap-4">
               <Link
                 href={`/give?amount=${amount}`}
-                className="bg-sindoor text-white font-bold text-base px-8 py-3.5 rounded-[2px] hover:opacity-90 active:translate-y-[1px] transition-all"
+                className="bg-sindoor text-white font-bold text-base px-8 py-3.5 rounded-full hover:opacity-90 active:translate-y-[1px] transition-all"
               >
                 Give ₹{amount}
               </Link>

@@ -215,7 +215,7 @@ export default function GiveCheckout() {
                   key={amt}
                   type="button" 
                   onClick={() => { setAmountType('preset'); setPresetAmount(amt); }}
-                  className={`border rounded-[2px] bg-paper py-3 text-sm font-bold transition-colors ${
+                  className={`border rounded-2xl bg-paper py-3 text-sm font-bold transition-colors ${
                     amountType === 'preset' && presetAmount === amt 
                     ? 'border-[2px] border-sindoor text-sindoor' 
                     : 'border-rule text-ink hover:border-ink'
@@ -235,7 +235,7 @@ export default function GiveCheckout() {
                     setOtherAmount(e.target.value);
                   }}
                   min="50"
-                  className={`w-full border rounded-[2px] bg-paper pl-8 pr-4 py-3 text-base font-bold transition-colors focus:outline-none ${
+                  className={`w-full border rounded-2xl bg-paper pl-8 pr-4 py-3 text-base font-bold transition-colors focus:outline-none ${
                     amountType === 'other' ? 'border-[2px] border-sindoor text-sindoor focus:border-sindoor' : 'border-rule text-ink placeholder:text-ink/30 hover:border-ink focus:border-ink'
                   }`} 
                 />
@@ -246,11 +246,11 @@ export default function GiveCheckout() {
           {/* 3. Frequency */}
           <div className="flex flex-col gap-3">
             <label className="text-sm font-bold tracking-wide uppercase text-ink/80">Frequency</label>
-            <div className="flex border border-sindoor rounded-[2px] p-1 bg-paper">
+            <div className="flex border border-sindoor rounded-full p-1 bg-paper">
               <button 
                 type="button" 
                 onClick={() => setFrequency('once')}
-                className={`flex-1 rounded-[2px] py-2.5 text-sm font-bold transition-colors ${
+                className={`flex-1 rounded-full py-2.5 text-sm font-bold transition-colors ${
                   frequency === 'once' ? 'bg-sindoor text-white shadow-sm' : 'bg-transparent text-sindoor hover:bg-sindoor/10'
                 }`}
               >
@@ -259,7 +259,7 @@ export default function GiveCheckout() {
               <button 
                 type="button" 
                 onClick={() => setFrequency('monthly')}
-                className={`flex-1 rounded-[2px] py-2.5 text-sm font-bold transition-colors ${
+                className={`flex-1 rounded-full py-2.5 text-sm font-bold transition-colors ${
                   frequency === 'monthly' ? 'bg-sindoor text-white shadow-sm' : 'bg-transparent text-sindoor hover:bg-sindoor/10'
                 }`}
               >
@@ -344,7 +344,7 @@ export default function GiveCheckout() {
             <button 
               type="submit" 
               disabled={state.phase === 'pending' || !isRazorpayLoaded}
-              className="w-full bg-sindoor text-white py-4 rounded-[2px] font-bold text-lg hover:opacity-90 active:translate-y-[1px] transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:active:translate-y-0"
+              className="w-full bg-sindoor text-white py-4 rounded-full font-bold text-lg hover:opacity-90 active:translate-y-[1px] transition-all disabled:opacity-70 disabled:cursor-not-allowed disabled:active:translate-y-0"
             >
               {state.phase === 'pending' ? 'Processing…' : `Give ₹${displayTotalRupees}`}
             </button>

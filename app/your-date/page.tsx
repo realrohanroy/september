@@ -83,7 +83,7 @@ export default function YourDatePage() {
             <div className="text-sm text-gray-600">
               Cancel anytime with one tap on WhatsApp.
             </div>
-            <Link href="/give" className="w-full md:w-auto text-center bg-sindoor text-white font-bold px-8 py-3.5 rounded-sm hover:opacity-90 transition-colors shadow-[0_1px_0_var(--rule)]">
+            <Link href="/give" className="w-full md:w-auto text-center bg-sindoor text-white font-bold px-8 py-3.5 rounded-full hover:opacity-90 transition-colors shadow-[0_1px_0_var(--rule)]">
               Set up mandate
             </Link>
           </div>

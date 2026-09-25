@@ -16,7 +16,7 @@ export function PremiumFooter() {
           <p className="text-lg text-ink/70 font-medium max-w-[42ch] mb-10 leading-relaxed">
             Every rupee that comes in, every rupee that goes out, updated every Sunday. We believe transparency isn't a feature; it's the foundation of everything we do.
           </p>
-          <Link href="/give" className="group flex items-center gap-3 bg-sindoor text-white rounded-[2px] px-8 py-4 text-base font-bold transition-all active:translate-y-[1px] hover:opacity-90 shadow-sm">
+          <Link href="/give" className="group flex items-center gap-3 bg-sindoor text-white rounded-full px-8 py-4 text-base font-bold transition-all active:translate-y-[1px] hover:opacity-90 shadow-sm">
             Give to the Khata
             <ArrowRight size={18} strokeWidth={2.5} className="transition-transform group-hover:translate-x-1" />
           </Link>
