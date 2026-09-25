@@ -56,7 +56,7 @@ export default function HeroSection() {
         {/* Full-bleed carousel image — no padding, no radius */}
         <div
           className="relative w-full overflow-hidden"
-          style={{ height: '56vw', minHeight: 220, maxHeight: 380 }}
+          style={{ height: '50vh' }}
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
